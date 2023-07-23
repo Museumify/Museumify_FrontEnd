@@ -1,11 +1,18 @@
 import React from "react";
-import './ArtPiecesList.css';
+import './ArtPiecesList.css'; 
+import ArtPiece from '../artPiece/ArtPiece'
 
-function ArtPiecesList(){
+function ArtPiecesList(props){
     return(
-        <div>
-
+        
+      <div className="main">
+      {  props.data.map((obj,i)=>(
+            <ArtPiece key={i} data={obj} commentHandler={props.commentHandler} />
+        ))
+        } 
         </div>
+
+        
     )
 }
 
