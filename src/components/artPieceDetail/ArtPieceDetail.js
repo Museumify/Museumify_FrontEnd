@@ -29,6 +29,7 @@ function ArtPieceDetail({handleShow,handleClose,show,DetailData,commentHandler,a
         description:DetailData.description,
         place:DetailData.place,
         comment:DetailData.comment
+        //addValue
       }
       console.log(data);
       let response = await fetch(url, {

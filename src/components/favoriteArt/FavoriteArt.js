@@ -2,11 +2,13 @@ import React from 'react'
 import './FavoriteArt.css'
 import { useEffect, useState } from "react";
 import { Card, Button } from "react-bootstrap";
+// import { useAuth0 } from '@auth0/auth0-react';
 
 function FavoriteArt(){
     const [favArt, setFavArt] = useState([]);
+    //const { user, isAuthenticated} = useAuth0();
 
-    
+    //<h2>{user.sub}</h2>
 
     async function handleFavArt() {
       const url = `${process.env.REACT_APP_SERVER_URL}/allArts`;
@@ -32,6 +34,8 @@ function FavoriteArt(){
     }, []);
     return(
         <div className="main">
+          {/* {} */}
+{/* const x = Art.filter((obj) => obj.userId === user.sub) */}
         {favArt.map((art, id) => (
             
             <Card key={id} style={{ width: '18rem'}}>
