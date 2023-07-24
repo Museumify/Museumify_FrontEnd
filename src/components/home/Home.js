@@ -28,7 +28,7 @@ function Home(){
         
     }, []);
     return(
-        <div>Home
+        <div>
             <ArtPiecesList data={data} commentHandler={commentHandler}/>
         </div>
         

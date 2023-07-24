@@ -7,13 +7,14 @@ import ArtPieceDetail from '../artPieceDetail/ArtPieceDetail'
 
 
 function ArtPiece(props) {
+    //console.log(props.data.id);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     return (
         <div>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={`${props.data.image}`} />
+            <Card style={{ width: '18rem', height: '550px' }}>
+                <Card.Img variant="top" src={`${props.data.image}`} style={{ height: '300px', objectFit: 'cover' }} />
                 <Card.Body>
                     <Card.Title>{props.data.title}</Card.Title>
                     <Card.Text>
@@ -21,12 +22,12 @@ function ArtPiece(props) {
                     </Card.Text>
 
 
+                    <Button style={{ position: 'absolute', bottom: '20px', left: '50%', transform: 'translateX(-50%)' }}
+                        onClick={handleShow} variant="primary">Show details</Button>
 
-
-                    <Button onClick={handleShow} variant="primary">Add To Favorite</Button> 
-                </Card.Body>
+                </Card.Body> 
             </Card>
-            <ArtPieceDetail DetailData={props.data} handleClose={handleClose} handleShow={handleShow} show={show} commentHandler={props.commentHandler} />
+            <ArtPieceDetail DetailData={props.data} artkey={props.data.id} handleClose={handleClose} handleShow={handleShow} show={show} commentHandler={props.commentHandler} />
 
         </div>
     )
