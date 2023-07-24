@@ -1,6 +1,17 @@
 .App {
   text-align: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
+
+#light{background-color: white;}
+#dark{background-color: #282c34;}
+
+.switch{
+  display:flex;
+  align-items: center;
+  }
 
 .App-logo {
   height: 40vmin;
