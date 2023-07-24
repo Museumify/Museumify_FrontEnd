@@ -1,17 +1,21 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import Home from './components/home/Home';
-import NavBarList from './components/navCompnent/NavBarList';
+import NavBarList from './components/navComponent/NavBarList';
+import { SearchBar } from './components/SearchBar/SearchBar';
 import FavoriteArt from './components/favoriteArt/FavoriteArt';
+
 function App() {
   return (
     <div className="App">
-      <NavBarList/>
-     <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/favorite" element={<FavoriteArt/>} />
+      <NavBarList />
+      {/* <div className="search-bar-container">
+        <SearchBar setResults={setResults} />
+        <SearchResultsList results={results} />
+      </div> */}
+      <Routes>
+        <Route path="/" element={<SearchBar />} />
+        <Route path="/favorite" element={<FavoriteArt />} />
       </Routes>
-      
     </div>
   );
 }
