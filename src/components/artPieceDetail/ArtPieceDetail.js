@@ -4,8 +4,9 @@ import { Button, Form } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
 import { useRef,useState } from 'react';
 
-function ArtPieceDetail({handleShow,handleClose,show,DetailData,commentHandler}) {
-    const [comment, setComment] = useState("");
+function ArtPieceDetail({handleShow,handleClose,show,DetailData,commentHandler,artkey}) {
+ // console.log(artkey); 
+  const [comment, setComment] = useState("");
     const commentRef = useRef();
   
     function handleSubmit(e) {
@@ -14,7 +15,7 @@ function ArtPieceDetail({handleShow,handleClose,show,DetailData,commentHandler})
       const newArt={...DetailData,userComment};
       setComment(userComment);
       commentHandler(newArt,newArt.id);
-      console.log(comment);
+      //console.log(comment);
     }
   
     
@@ -29,15 +30,18 @@ function ArtPieceDetail({handleShow,handleClose,show,DetailData,commentHandler})
         place:DetailData.place,
         comment:DetailData.comment
       }
+      console.log(data);
       let response = await fetch(url, {
         method: 'POST',
         headers: {
           "Content-Type": "application/json"
         },
+        
         body: JSON.stringify(data)
       })
+      // console.log(data);
       let recivedData = await response.json();
-      console.log('recivedData', recivedData);
+      // console.log('recivedData', recivedData);
      
     }
     return(
@@ -56,8 +60,8 @@ function ArtPieceDetail({handleShow,handleClose,show,DetailData,commentHandler})
             <Button variant="primary" type="submit">
               Submit
             </Button>
-            <Button variant="primary" onClick={(e) => handleAddFav(e)}>
-              Add To Favorite
+            <Button variant="primary" onClick ={e=> handleAddFav(e)}>
+              Add To Favoritee
             </Button>
           </Form>
           {DetailData.comment ? DetailData.comment : "No Comment Added"}
