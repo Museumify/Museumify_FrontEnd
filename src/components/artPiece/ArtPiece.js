@@ -12,11 +12,11 @@ function ArtPiece(props) {
   return (
     <div>
       <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src={`${props.data.images?.web?.url}`} />
+        <Card.Img variant="top" src={`${props.data.image}`} />
         <Card.Body>
           <Card.Title>{props.data.title}</Card.Title>
-          <Card.Text>{props.data.creators?.[0]?.description}</Card.Text>
-          <Card.Text>{props.data?.culture?.[0]} </Card.Text>
+          <Card.Text>{props.data.artist}</Card.Text>
+          <Card.Text>{props.data.place} </Card.Text>
           <Button onClick={handleShow} variant="primary">
             Add To Favorite
           </Button>
