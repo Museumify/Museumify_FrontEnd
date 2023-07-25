@@ -4,6 +4,8 @@ import { Button, Form } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
 import { useRef, useState } from 'react';
 
+import { useAuth0 } from '@auth0/auth0-react';
+
 function ArtPieceDetail({
   handleShow,
   handleClose,
@@ -12,6 +14,8 @@ function ArtPieceDetail({
   commentHandler,
   artkey,
 }) {
+  const { user, isAuthenticated } = useAuth0();
+
   // console.log(artkey);
   const [comment, setComment] = useState('');
   const commentRef = useRef();
@@ -35,6 +39,8 @@ function ArtPieceDetail({
       description: DetailData.description,
       place: DetailData.place,
       comment: DetailData.comment,
+      userid: user.sub,
+      //addValue
     };
     console.log(data);
     let response = await fetch(url, {
@@ -46,8 +52,8 @@ function ArtPieceDetail({
       body: JSON.stringify(data),
     });
     // console.log(data);
-    let receivedData = await response.json();
-    console.log('receivedData', receivedData);
+    let recivedData = await response.json();
+    // console.log('recivedData', recivedData);
   }
   return (
     <div>
