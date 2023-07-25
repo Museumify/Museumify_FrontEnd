@@ -4,7 +4,7 @@ import Home from './components/home/Home';
 import NavBarList from './components/navCompnent/NavBarList';
 import FavoriteArt from './components/favoriteArt/FavoriteArt';
 import { createContext, useState } from 'react';
-
+import Header from './components/Header';
 export const ThemeContext= createContext(null);
 
 function App() {
@@ -19,7 +19,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/favorite" element={<FavoriteArt/>} />
+        <Route path="/header" element={<Header />} />
       </Routes> 
+
     </div>
     </ThemeContext.Provider>
   );
