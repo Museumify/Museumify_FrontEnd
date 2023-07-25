@@ -1,9 +1,10 @@
 import './App.css';
+import { createContext, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import NavBarList from './components/navComponent/NavBarList';
 import { SearchBar } from './components/SearchBar/SearchBar';
 import FavoriteArt from './components/favoriteArt/FavoriteArt';
-import { createContext, useState } from 'react';
+import LoginButton from './components/Login';
 
 import Header from './components/Header';
 export const ThemeContext = createContext(null);
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={<SearchBar />} />
           <Route path="/favorite" element={<FavoriteArt />} />
           <Route path="/header" element={<Header />} />
+          <Route path="/signin" element={<LoginButton />} />
         </Routes>
       </div>
     </ThemeContext.Provider>

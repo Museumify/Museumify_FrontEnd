@@ -16,7 +16,6 @@ function ArtPieceDetail({
 }) {
   const { user, isAuthenticated } = useAuth0();
 
-  // console.log(artkey);
   const [comment, setComment] = useState('');
   const commentRef = useRef();
 
@@ -26,7 +25,6 @@ function ArtPieceDetail({
     const newArt = { ...DetailData, userComment };
     setComment(userComment);
     commentHandler(newArt, newArt.id);
-    //console.log(comment);
   }
 
   async function handleAddFav(e) {
@@ -40,21 +38,20 @@ function ArtPieceDetail({
       place: DetailData.place,
       comment: DetailData.comment,
       userid: user.sub,
-      //addValue
     };
-    console.log(data);
+
     let response = await fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-
       body: JSON.stringify(data),
     });
-    // console.log(data);
-    let recivedData = await response.json();
-    // console.log('recivedData', recivedData);
+
+    let receivedData = await response.json();
+    console.log('receivedData', receivedData);
   }
+
   return (
     <div>
       <Modal show={show} onHide={handleClose}>
@@ -67,6 +64,10 @@ function ArtPieceDetail({
             src={`${DetailData.image}`}
             alt={DetailData.title}
           />
+          <p> {DetailData.artist} </p>
+          <p> {DetailData.description} </p>
+          <p> {DetailData.place} </p>
+
           <Form onSubmit={(e) => handleSubmit(e)}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Comment</Form.Label>
@@ -79,11 +80,12 @@ function ArtPieceDetail({
             <Button variant="primary" type="submit">
               Submit
             </Button>
-            <Button variant="primary" onClick={(e) => handleAddFav(e)}>
-              Add To Favorite
-            </Button>
+            {isAuthenticated && (
+              <Button variant="primary" onClick={(e) => handleAddFav(e)}>
+                Add To Favorites
+              </Button>
+            )}
           </Form>
-          {DetailData.comment ? DetailData.comment : 'No Comment Added'}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
