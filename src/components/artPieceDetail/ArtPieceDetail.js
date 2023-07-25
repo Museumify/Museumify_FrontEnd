@@ -15,7 +15,7 @@ function ArtPieceDetail({handleShow,handleClose,show,DetailData,commentHandler,a
       const newArt={...DetailData,userComment};
       setComment(userComment);
       commentHandler(newArt,newArt.id);
-      //console.log(comment);
+      console.log(comment);
     }
   
     
@@ -41,17 +41,21 @@ function ArtPieceDetail({handleShow,handleClose,show,DetailData,commentHandler,a
       })
       // console.log(data);
       let recivedData = await response.json();
-      // console.log('recivedData', recivedData);
+      console.log('recivedData', recivedData);
      
     }
     return(
-        <div>
-            <Modal show={show} onHide={handleClose}>
+        <div >
+            <Modal show={show} onHide={handleClose} size="xl">
         <Modal.Header closeButton>
           <Modal.Title>{DetailData.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <img style={{width:'100%'}} src={`${DetailData.image}`} alt={DetailData.title}/>
+          <p> {(DetailData.artist)} </p>
+              <p> {(DetailData.description)} </p>
+              <p> {(DetailData.place)} </p>
+
           <Form onSubmit={(e) => handleSubmit(e)}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Comment</Form.Label>
@@ -64,7 +68,6 @@ function ArtPieceDetail({handleShow,handleClose,show,DetailData,commentHandler,a
               Add To Favoritee
             </Button>
           </Form>
-          {DetailData.comment ? DetailData.comment : "No Comment Added"}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
