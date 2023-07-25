@@ -2,13 +2,12 @@ import React from 'react'
 import './FavoriteArt.css'
 import { useEffect, useState } from "react";
 import { Card, Button } from "react-bootstrap";
-// import { useAuth0 } from '@auth0/auth0-react';
+import { useAuth0 } from '@auth0/auth0-react';
 
 function FavoriteArt(){
     const [favArt, setFavArt] = useState([]);
-    //const { user, isAuthenticated} = useAuth0();
+    const { user, isAuthenticated} = useAuth0();
 
-    //<h2>{user.sub}</h2>
 
     async function handleFavArt() {
       const url = `${process.env.REACT_APP_SERVER_URL}/allArts`;
@@ -29,15 +28,19 @@ function FavoriteArt(){
     }
 
     useEffect(() => {
+
         handleFavArt();
         
     }, []);
+
+    const userFavArt =  isAuthenticated&&user&&user.sub ? favArt.filter((obj) => obj.userid === user.sub) : []
+
     return(
         <div className="main">
-          {/* {} */}
-{/* const x = Art.filter((obj) => obj.userId === user.sub) */}
-        {favArt.map((art, id) => (
-            
+      
+        {
+        userFavArt.length > 0 ?
+        userFavArt.map((art, id) => (    
             <Card key={id} style={{ width: '18rem'}}>
             <Card.Img variant="top" src={`${art.image}`} />
             <Card.Body>
@@ -50,7 +53,11 @@ function FavoriteArt(){
                 <Button variant="success">Update</Button>
             </Card.Body>
           </Card>
-        ))}
+        ))
+        :
+        "No fav list"
+        
+        }
       </div>
     )
 }

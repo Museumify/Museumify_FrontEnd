@@ -4,8 +4,13 @@ import { Button, Form } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
 import { useRef,useState } from 'react';
 
+import { useAuth0 } from '@auth0/auth0-react';
+
 function ArtPieceDetail({handleShow,handleClose,show,DetailData,commentHandler,artkey}) {
- // console.log(artkey); 
+
+  const { user, isAuthenticated} = useAuth0();
+
+  // console.log(artkey); 
   const [comment, setComment] = useState("");
     const commentRef = useRef();
   
@@ -28,7 +33,8 @@ function ArtPieceDetail({handleShow,handleClose,show,DetailData,commentHandler,a
         image:DetailData.image,
         description:DetailData.description,
         place:DetailData.place,
-        comment:DetailData.comment
+        comment:DetailData.comment,
+        userid:user.sub
         //addValue
       }
       console.log(data);
