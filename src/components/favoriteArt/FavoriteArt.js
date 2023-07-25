@@ -60,3 +60,4 @@ function FavoriteArt() {
 }
 
 export default FavoriteArt;
+
