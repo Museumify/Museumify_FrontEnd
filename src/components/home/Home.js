@@ -20,16 +20,6 @@ function Home({ searchUrl }) {
       const arts = await response.json();
       responseData = arts;
     }
-    // console.log(searchUrl);
-    // const response = await fetch(`${searchUrl}`);
-    // const arts = await response.json();
-    // var responseData;
-    // if (searchUrl.includes('artists') || searchUrl.includes('culture')) {
-    // responseData = arts?.data ?? [];
-    //   console.log('from home', responseData);
-    // } else {
-    //   responseData = arts;
-    // }
 
     console.log('arts', responseData);
     setData(responseData);

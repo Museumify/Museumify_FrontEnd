@@ -26,7 +26,7 @@ export const SearchBar = () => {
     if (value === null || value === '') {
       searchUrl = null;
     } else {
-      searchUrl = `https://museumifyserver.onrender.com?${query}=${value}`;
+      searchUrl = `${process.env.REACT_APP_SERVER_URL}/?${query}=${value}`;
     }
     // console.log('result selected', searchUrl);
 
