@@ -1,0 +1,44 @@
+.profile-modal {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  .center-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  .profile-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px; }
+    
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+  
+  .profile-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .profile-email {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .profile-nickname {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
