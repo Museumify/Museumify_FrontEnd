@@ -2,63 +2,62 @@ import React from "react";
 import './ArtPieceDetail.css';
 import { Button, Form } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
-import { useRef,useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { useAuth0 } from '@auth0/auth0-react';
 
-function ArtPieceDetail({handleShow,handleClose,show,DetailData,commentHandler,artkey}) {
+function ArtPieceDetail({ handleShow, handleClose, show, DetailData, commentHandler, artkey }) {
+  const { user, isAuthenticated } = useAuth0();
 
-  const { user, isAuthenticated} = useAuth0();
-
-  // console.log(artkey); 
   const [comment, setComment] = useState("");
-    const commentRef = useRef();
-  
-    function handleSubmit(e) {
-      e.preventDefault();
-      const userComment=commentRef.current.value;
-      const newArt={...DetailData,userComment};
-      setComment(userComment);
-      commentHandler(newArt,newArt.id);
-      //console.log(comment);
+  const commentRef = useRef();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const userComment = commentRef.current.value;
+    const newArt = { ...DetailData, userComment };
+    setComment(userComment);
+    commentHandler(newArt, newArt.id);
+  }
+
+  async function handleAddFav(e) {
+    e.preventDefault();
+    if (!isAuthenticated) {
+      console.log("Please log in to add to favorites.");
+      return;
     }
-  
-    
-    async function handleAddFav(e){
-      e.preventDefault();
-      let url = `${process.env.REACT_APP_SERVER_URL}/addNewArt`;
-      let data = {
-        title:DetailData.title,
-        artist:DetailData.artist,
-        image:DetailData.image,
-        description:DetailData.description,
-        place:DetailData.place,
-        comment:DetailData.comment,
-        userid:user.sub
-        //addValue
-      }
-      console.log(data);
-      let response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          "Content-Type": "application/json"
-        },
-        
-        body: JSON.stringify(data)
-      })
-      // console.log(data);
-      let recivedData = await response.json();
-      // console.log('recivedData', recivedData);
-     
+
+    let url = `${process.env.REACT_APP_SERVER_URL}/addNewArt`;
+    let data = {
+      title: DetailData.title,
+      artist: DetailData.artist,
+      image: DetailData.image,
+      description: DetailData.description,
+      place: DetailData.place,
+      comment: DetailData.comment,
+      userid: user.sub
     }
-    return(
-        <div>
-            <Modal show={show} onHide={handleClose}>
+
+    let response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    let receivedData = await response.json();
+    console.log('receivedData', receivedData);
+  }
+
+  return (
+    <div>
+      <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{DetailData.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <img style={{width:'100%'}} src={`${DetailData.image}`} alt={DetailData.title}/>
+          <img style={{ width: '100%' }} src={`${DetailData.image}`} alt={DetailData.title} />
           <Form onSubmit={(e) => handleSubmit(e)}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Comment</Form.Label>
@@ -67,9 +66,11 @@ function ArtPieceDetail({handleShow,handleClose,show,DetailData,commentHandler,a
             <Button variant="primary" type="submit">
               Submit
             </Button>
-            <Button variant="primary" onClick ={e=> handleAddFav(e)}>
-              Add To Favoritee
-            </Button>
+            {isAuthenticated && (
+              <Button variant="primary" onClick={e => handleAddFav(e)}>
+                Add To Favorites
+              </Button>
+            )}
           </Form>
           {DetailData.comment ? DetailData.comment : "No Comment Added"}
         </Modal.Body>
@@ -82,9 +83,8 @@ function ArtPieceDetail({handleShow,handleClose,show,DetailData,commentHandler,a
           </Button>
         </Modal.Footer>
       </Modal>
-
-        </div>
-    )
+    </div>
+  )
 }
 
 export default ArtPieceDetail;
