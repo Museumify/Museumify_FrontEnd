@@ -14,6 +14,9 @@ function Home({ searchUrl }) {
     console.log(searchUrl);
     const response = await fetch(`${searchUrl}`);
     const arts = await response.json();
+
+    // data receieved for homeURL (array) not the same type as searchUrl (object has the array)
+
     var responseData;
     if (searchUrl.includes('artists') || searchUrl.includes('culture')) {
       responseData = arts?.data ?? [];

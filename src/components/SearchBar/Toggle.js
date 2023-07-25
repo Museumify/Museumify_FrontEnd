@@ -7,7 +7,7 @@ export const Toggle = ({ label, toggled, onClick }) => {
   const callback = () => {
     const newState = !isToggled;
     toggle(newState);
-    onClick(newState); // Call the onClick function with the updated state
+    onClick(newState);
   };
 
   return (

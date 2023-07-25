@@ -8,10 +8,6 @@ function App() {
   return (
     <div className="App">
       <NavBarList />
-      {/* <div className="search-bar-container">
-        <SearchBar setResults={setResults} />
-        <SearchResultsList results={results} />
-      </div> */}
       <Routes>
         <Route path="/" element={<SearchBar />} />
         <Route path="/favorite" element={<FavoriteArt />} />

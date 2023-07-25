@@ -6,7 +6,7 @@ import './SearchBar.css';
 
 export const SearchBar = () => {
   const [input, setInput] = useState('');
-  const [searchUrl, setResults] = useState(null);
+  const [searchUrl, setSearchUrl] = useState(null);
   const [isLabelToggled, setIsLabelToggled] = useState(false);
 
   const logState = (state) => {
@@ -14,30 +14,34 @@ export const SearchBar = () => {
     setIsLabelToggled(state);
   };
 
-  const fetchData = async (value) => {
+  /// this logic sets the URL that will be sent to Home view
+  const setHomeUrl = async (value) => {
     var query;
-
+    // filter logic to get query
     if (isLabelToggled === false) {
       query = 'artists';
     } else if (isLabelToggled === true) {
       query = 'culture';
     }
-    var searchUrl = null;
+
+    //setting url based on query or not
+    var searchUrl = null; //no search value
     if (value === null || value === '') {
       searchUrl = null;
     } else {
+      // have a query
       searchUrl = `https://openaccess-api.clevelandart.org/api/artworks/?${query}=${value}`;
     }
     console.log('result selected', searchUrl);
 
-    setResults(searchUrl);
+    setSearchUrl(searchUrl); // setting the final search url to use state Hook 
 
     console.log('the url from search bar', searchUrl);
   };
 
   const handleChange = (value) => {
     setInput(value);
-    fetchData(value);
+    setHomeUrl(value);
   };
 
   return (
