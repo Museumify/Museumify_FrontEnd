@@ -58,9 +58,9 @@ function ArtPieceDetail({ handleShow, handleClose, show, DetailData, commentHand
         </Modal.Header>
         <Modal.Body>
           <img style={{width:'100%'}} src={`${DetailData.image}`} alt={DetailData.title}/>
-          <p> {(DetailData.artist)} </p>
-              <p> {(DetailData.description)} </p>
-              <p> {(DetailData.place)} </p>
+              <p> {DetailData.artist} </p>
+              <p> {DetailData.description} </p>
+              <p> {DetailData.place} </p>
 
           <Form onSubmit={(e) => handleSubmit(e)}>
             <Form.Group className="mb-3" controlId="formBasicEmail">

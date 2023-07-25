@@ -1,7 +1,11 @@
 import { Modal, Button, Form } from "react-bootstrap";
 import { useRef } from "react";
 import InputGroup from 'react-bootstrap/InputGroup';
+import { useAuth0 } from '@auth0/auth0-react';
+
 function NewCardForm({ handleShow, handleClose, show }) {
+    const { user, isAuthenticated } = useAuth0();
+
     const titleRef = useRef();
     const artistRef = useRef();
     const imageRef = useRef();
@@ -22,7 +26,8 @@ function NewCardForm({ handleShow, handleClose, show }) {
             image: imageRef.current.value,
             description: descriptionRef.current.value,
             place: placeRef.current.value,
-            comment: commentRef.current.value
+            comment: commentRef.current.value,
+            userid:user.sub
         }
         console.log(data);
         let response = await fetch(url, {

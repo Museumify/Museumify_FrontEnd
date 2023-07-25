@@ -49,7 +49,7 @@ function FavoriteArt() {
       setFavArt(prevState =>
         prevState.map(art => {
           if (art.id === id) {
-            return { ...art, comment: updatedComment }; // Update the comment of the specific movie
+            return { ...art, comment: updatedComment }; 
           }
           return art;
         })
@@ -67,7 +67,7 @@ function FavoriteArt() {
       </div>
   
       <div className="main">
-        {isAuthenticated && user && user.sub ? favArt.filter((obj) => obj.userid === user.sub) : []}
+        
         {
           userFavArt.length > 0 ?
           userFavArt.map((art, id) => (
