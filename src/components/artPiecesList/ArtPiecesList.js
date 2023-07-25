@@ -30,8 +30,11 @@ function ArtPiecesList(props) {
           obj.id !== 145463 &&
           obj.id !== 144743 &&
           obj.id !== 169187 &&
-          obj.id !== 141644
+          obj.id !== 141644 &&
+          obj.id !== 109570 &&
+          obj.id !== 166628
         ) {
+          console.log(obj);
           return (
             <ArtPiece
               key={i}

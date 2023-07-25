@@ -26,13 +26,13 @@ export const SearchBar = () => {
     if (value === null || value === '') {
       searchUrl = null;
     } else {
-      searchUrl = `https://openaccess-api.clevelandart.org/api/artworks/?${query}=${value}`;
+      searchUrl = `https://museumifyserver.onrender.com?${query}=${value}`;
     }
-    console.log('result selected', searchUrl);
+    // console.log('result selected', searchUrl);
 
     setResults(searchUrl);
 
-    console.log('the url from search bar', searchUrl);
+    // console.log('the url from search bar', searchUrl);
   };
 
   const handleChange = (value) => {

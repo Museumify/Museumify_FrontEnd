@@ -8,18 +8,28 @@ function Home({ searchUrl }) {
 
   async function getArtPieces(searchUrl) {
     console.log(searchUrl);
+    var responseData;
     if (searchUrl == null) {
       searchUrl = process.env.REACT_APP_SERVER_URL;
-    }
-    console.log(searchUrl);
-    const response = await fetch(`${searchUrl}`);
-    const arts = await response.json();
-    var responseData;
-    if (searchUrl.includes('artists') || searchUrl.includes('culture')) {
-      responseData = arts?.data ?? [];
+      const response = await fetch(`${searchUrl}`);
+      const arts = await response.json();
+      responseData = arts;
     } else {
+      searchUrl = searchUrl;
+      const response = await fetch(`${searchUrl}`);
+      const arts = await response.json();
       responseData = arts;
     }
+    // console.log(searchUrl);
+    // const response = await fetch(`${searchUrl}`);
+    // const arts = await response.json();
+    // var responseData;
+    // if (searchUrl.includes('artists') || searchUrl.includes('culture')) {
+    // responseData = arts?.data ?? [];
+    //   console.log('from home', responseData);
+    // } else {
+    //   responseData = arts;
+    // }
 
     console.log('arts', responseData);
     setData(responseData);
