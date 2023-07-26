@@ -11,7 +11,7 @@ const ProfilePage = () => {
   return (
   <>
     <Container className="profile-container">
-      <h1 className="profile-title">Meet the Artist</h1>
+      <h1 className="profile-title">Your Profile</h1>
     <Card className="profile-card" style={{ maxWidth: "400px" }}>
       <div className="profile-image-container">
         {user?.picture && (

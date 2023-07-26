@@ -20,25 +20,17 @@ function Slider() {
         <Carousel.Caption>
           <h1
             style={{
-              color: 'black',
+              fontFamily: 'Rye',
+              color:"black",
+              fontSize: '50px',
               marginBottom: '300px',
               marginTop: '400px',
-              fontFamily: 'DaiBannaSIL',
-              fontWeight: 'bold',
+              fontWeight:"bold"
             }}
           >
             Welcome to Museumify
           </h1>
-          {/* <p
-            style={{
-              fontFamily: 'DaiBannaSIL',
-              fontSize: '50px',
-              fontWeight: 'bold',
-              marginBottom: '150px',
-            }}
-          >
-           
-          </p> */}
+
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -56,23 +48,15 @@ function Slider() {
           }}
         />
         <Carousel.Caption>
-          {/* <h1
-            style={{
-              color: 'white',
-              marginBottom: '100px',
-              marginTop: '400px',
-              fontFamily: 'DaiBannaSIL',
-              fontWeight: '1500',
-            }}
-          >
-            Welcome to Museumify
-          </h1> */}
+  
           <p
             style={{
-              fontFamily: 'DaiBannaSIL',
-              fontSize: '50px',
-              fontWeight: 'bold',
-              marginBottom: '250px',
+              fontFamily: 'Rye',
+              color:"C07F00",
+              fontSize: '25px',
+              marginBottom: '50px',
+              fontWeight:"bold"
+              
             }}
           >
             Explore a diverse collection of captivating art from renowned
@@ -97,23 +81,15 @@ function Slider() {
           }}
         />
         <Carousel.Caption>
-          {/* <h1
-            style={{
-              color: 'white',
-              marginBottom: '100px',
-              marginTop: '400px',
-              fontFamily: 'DaiBannaSIL',
-              fontWeight: '1500',
-            }}
-          >
-            Welcome to Museumify
-          </h1> */}
+   
           <p
             style={{
-              fontFamily: 'DaiBannaSIL',
-              fontSize: '50px',
-              fontWeight: 'bold',
-              marginBottom: '250px',
+              fontFamily: 'Rye',
+              color:"C07F00",
+              fontSize: '25px',
+              marginBottom: '50px',
+              fontWeight:"bold"
+              
             }}
           >
             Immerse yourself in a captivating gallery of diverse art pieces
@@ -137,23 +113,14 @@ function Slider() {
           }}
         />
         <Carousel.Caption>
-          {/* <h1
-            style={{
-              color: 'white',
-              marginBottom: '100px',
-              marginTop: '400px',
-              fontFamily: 'DaiBannaSIL',
-              fontWeight: '1500',
-            }}
-          >
-            Welcome to Museumify
-          </h1> */}
+     
           <p
             style={{
-              fontFamily: 'DaiBannaSIL',
-              fontSize: '50px',
-              fontWeight: 'bold',
-              marginBottom: '250px',
+              fontFamily: 'Rye',
+              color:"C07F00",
+              fontSize: '25px',
+              marginBottom: '50px',
+              fontWeight:"bold"
             }}
           >
             Unleash your creativity and share your artistic masterpieces with
