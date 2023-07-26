@@ -1,7 +1,7 @@
-import React from 'react'
-import './FavoriteArt.css'
-import { useEffect, useState } from "react";
-import { Card, Button } from "react-bootstrap";
+import React from 'react';
+import './FavoriteArt.css';
+import { useEffect, useState } from 'react';
+import { Card, Button } from 'react-bootstrap';
 import NewCardForm from './NewCardForm';
 import { useAuth0 } from '@auth0/auth0-react';
 
@@ -12,44 +12,41 @@ function FavoriteArt() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-
-
   async function handleFavArt() {
     const url = `${process.env.REACT_APP_SERVER_URL}/allArts`;
     let response = await fetch(url);
-    let recivedData = await response.json();
-    setFavArt(recivedData);
+    let receivedData = await response.json();
+    setFavArt(receivedData);
   }
   async function handleDelete(id) {
     const url = `${process.env.REACT_APP_SERVER_URL}/delete/${id}`;
     let response = await fetch(url, {
       method: 'DELETE',
       headers: {
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json',
       },
     });
-    console.log(response)
+    console.log(response);
     handleFavArt();
   }
 
   useEffect(() => {
     handleFavArt();
-
   }, []);
 
   async function handleUpdate(id, updatedComment) {
     const url = `${process.env.REACT_APP_SERVER_URL}/update/${id}`;
     let response = await fetch(url, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ comment: updatedComment }),
     });
     if (response.status === 200) {
       alert('COMMENT UPDATED SUCCESSFULLY');
-      setFavArt(prevState =>
-        prevState.map(art => {
+      setFavArt((prevState) =>
+        prevState.map((art) => {
           if (art.id === id) {
-            return { ...art, comment: updatedComment }; 
+            return { ...art, comment: updatedComment };
           }
           return art;
         })
@@ -57,15 +54,28 @@ function FavoriteArt() {
     }
   }
 
-
-  const userFavArt =  isAuthenticated&&user&&user.sub ? favArt.filter((obj) => obj.userid === user.sub) : []
+  const userFavArt =
+    isAuthenticated && user && user.sub
+      ? favArt.filter((obj) => obj.userid === user.sub)
+      : [];
 
   return (
     <div>
       <div style={{ float: 'left', width: '100%' }}>
-        <Button style={{ marginTop: '20px', float: 'right', marginRight: '20px', borderRadius: '50px' }} onClick={handleShow} variant="secondary"><h1 style={{ paddingLeft: '10px', paddingRight: '10px' }}>+</h1></Button>
+        <Button
+          style={{
+            marginTop: '20px',
+            float: 'right',
+            marginRight: '20px',
+            borderRadius: '50px',
+          }}
+          onClick={handleShow}
+          variant="secondary"
+        >
+          <h1 style={{ paddingLeft: '10px', paddingRight: '10px' }}>+</h1>
+        </Button>
       </div>
-  
+
       <div className="main">
         
         {
@@ -92,12 +102,12 @@ function FavoriteArt() {
             </div>
           ))
           :
-          "No fav list"
+          "No Favorite Art Pieces Were Added"
         }
         <NewCardForm handleClose={handleClose} handleShow={handleShow} show={show} />
       </div>
     </div>
-  )
+  );
 }
 
-      export default FavoriteArt;
+export default FavoriteArt;

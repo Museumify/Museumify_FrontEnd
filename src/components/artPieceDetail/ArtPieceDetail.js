@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import './ArtPieceDetail.css';
 import { Button, Form } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
@@ -6,10 +6,17 @@ import { useRef, useState } from 'react';
 
 import { useAuth0 } from '@auth0/auth0-react';
 
-function ArtPieceDetail({ handleShow, handleClose, show, DetailData, commentHandler, artkey }) {
+function ArtPieceDetail({
+  handleShow,
+  handleClose,
+  show,
+  DetailData,
+  commentHandler,
+  artkey,
+}) {
   const { user, isAuthenticated } = useAuth0();
 
-  const [comment, setComment] = useState("");
+  const [comment, setComment] = useState('');
   const commentRef = useRef();
 
   function handleSubmit(e) {
@@ -22,11 +29,6 @@ function ArtPieceDetail({ handleShow, handleClose, show, DetailData, commentHand
 
   async function handleAddFav(e) {
     e.preventDefault();
-    if (!isAuthenticated) {
-      console.log("Please log in to add to favorites.");
-      return;
-    }
-
     let url = `${process.env.REACT_APP_SERVER_URL}/addNewArt`;
     let data = {
       title: DetailData.title,
@@ -35,17 +37,17 @@ function ArtPieceDetail({ handleShow, handleClose, show, DetailData, commentHand
       description: DetailData.description,
       place: DetailData.place,
       comment: DetailData.comment,
-      userid: user.sub
-    }
-
+      userid: user.sub,
+    };
+    console.log('data from add fav', data);
     let response = await fetch(url, {
       method: 'POST',
       headers: {
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     });
-
+    console.log(response);
     let receivedData = await response.json();
     console.log('receivedData', receivedData);
   }
@@ -57,15 +59,23 @@ function ArtPieceDetail({ handleShow, handleClose, show, DetailData, commentHand
           <Modal.Title>{DetailData.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <img style={{width:'100%'}} src={`${DetailData.image}`} alt={DetailData.title}/>
-              <p> {DetailData.artist} </p>
-              <p> {DetailData.description} </p>
-              <p> {DetailData.place} </p>
+          <img
+            style={{ width: '100%' }}
+            src={`${DetailData.image}`}
+            alt={DetailData.title}
+          />
+          <p> {DetailData.artist} </p>
+          <p> {DetailData.description} </p>
+          <p> {DetailData.place} </p>
 
           <Form onSubmit={(e) => handleSubmit(e)}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Comment</Form.Label>
-              <Form.Control ref={commentRef} type="text" placeholder="Type Your Comment here" />
+              <Form.Control
+                ref={commentRef}
+                type="text"
+                placeholder="Type Your Comment here"
+              />
             </Form.Group>
             <Button variant="primary" type="submit">
               Submit
@@ -85,7 +95,7 @@ function ArtPieceDetail({ handleShow, handleClose, show, DetailData, commentHand
         </Modal.Footer>
       </Modal>
     </div>
-  )
+  );
 }
 
 export default ArtPieceDetail;

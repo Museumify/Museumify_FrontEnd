@@ -1,10 +1,9 @@
-import React from "react";
+import React from 'react';
 import './ArtPiece.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useState } from 'react';
-import ArtPieceDetail from '../artPieceDetail/ArtPieceDetail'
-
+import ArtPieceDetail from '../artPieceDetail/ArtPieceDetail';
 
 function ArtPiece(props) {
     //console.log(props.data.id);

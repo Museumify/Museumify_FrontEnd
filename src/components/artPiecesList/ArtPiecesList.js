@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 import './ArtPiecesList.css';
-import ArtPiece from '../artPiece/ArtPiece'
+import ArtPiece from '../artPiece/ArtPiece';
 
 function ArtPiecesList(props) {
     return (
