@@ -54,41 +54,44 @@ function ArtPieceDetail({
 
   return (
     <div>
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} size='xl' className="my-modal" >
         <Modal.Header closeButton>
-          <Modal.Title>{DetailData.title}</Modal.Title>
+          <Modal.Title><h1 style={{fontFamily: "Lucida Console"}}>{DetailData.title}</h1></Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body >
+          <div style={{width:'40%',float:'left'}}>
           <img
-            style={{ width: '100%' }}
+            style={{ width: '100%',height:'400px' }}
             src={`${DetailData.image}`}
             alt={DetailData.title}
           />
-          <p> {DetailData.artist} </p>
-          <p> {DetailData.description} </p>
-          <p> {DetailData.place} </p>
-
+          <p style={{fontFamily: "Lucida Console",marginTop:'10px'}}><b>ARTIST NAME :</b> {DetailData.artist} </p>
+          <p style={{fontFamily: "Lucida Console"}}><b>PLACE :</b> {DetailData.place} </p>
           <Form onSubmit={(e) => handleSubmit(e)}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Comment</Form.Label>
               <Form.Control
                 ref={commentRef}
                 type="text"
                 placeholder="Type Your Comment here"
               />
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" style={{float:'right',fontFamily: "Lucida Console"}}>
               Submit
             </Button>
           </Form>
+          </div>
+          <div style={{width:'55%',marginRight:'2%',float:'right'}}>
+          <p style={{fontFamily: "Lucida Console"}} ><b>ARTPIECE DESCRIPTION :</b> </p>
+          <p style={{fontFamily: "Lucida Console",textAlign:'justify',wordSpacing: '5px'}}> {DetailData.description} </p>
+          </div> 
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={handleClose} style={{fontFamily: "Lucida Console"}}>
             Close
           </Button>
 
           {isAuthenticated && (
-          <Button variant="primary" onClick={e => handleAddFav(e)}>
+          <Button variant="primary" style={{fontFamily: "Lucida Console"}} onClick={e => handleAddFav(e)}>
             Save Changes
           </Button>)}
 
