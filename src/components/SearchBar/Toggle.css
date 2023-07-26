@@ -3,15 +3,9 @@ label {
   display: inline-block;
   width: 60px;
   height: 30px;
+  color: rgb(6, 6, 145);
 }
 
-/*
-input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-*/
 /* span {
   position: absolute;
   cursor: pointer;
@@ -19,7 +13,6 @@ input {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #2c3e50;
   transition: 0.3s;
   border-radius: 30px;
 }
@@ -44,7 +37,7 @@ input:checked + span:before {
 }
 strong {
   position: absolute;
-  left: -70px;
+  left: -50px;
   width: max-content;
   line-height: 30px;
   margin-left: 10px;

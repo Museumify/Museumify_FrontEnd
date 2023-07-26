@@ -3,6 +3,7 @@ import './Home.css';
 import { useState, useEffect } from 'react';
 import ArtPiecesList from '../artPiecesList/ArtPiecesList';
 import Slider from './Slider';
+import { SearchBar } from '../SearchBar/SearchBar';
 
 function Home({ searchUrl }) {
   const [data, setData] = useState([]);
@@ -40,12 +41,12 @@ function Home({ searchUrl }) {
   }, [searchUrl]);
   return (
     <div>
-    <div style={{margin:'8px',marginTop:'25px'}} >
-    <Slider/>
-</div>
-    <div>
-      <ArtPiecesList data={data} commentHandler={commentHandler} />
-    </div>
+      <div style={{ margin: '8px', marginTop: '25px' }}>
+        <Slider />
+      </div>
+      <div>
+        <ArtPiecesList data={data} commentHandler={commentHandler} />
+      </div>
     </div>
   );
 }

@@ -1,14 +1,15 @@
-import React, { useState } from "react";
-import "./NavBarList.css";
-import { ThemeContext } from "../../App";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import ReactSwitch from "react-switch";
-import Dropdown from "react-bootstrap/Dropdown";
-import ProfileModal from "../screens/Profile";
-import LogoutButton from "../Logout";
-import { useAuth0 } from "@auth0/auth0-react";
+import React, { useState } from 'react';
+import './NavBarList.css';
+import { ThemeContext } from '../../App';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import ReactSwitch from 'react-switch';
+import Dropdown from 'react-bootstrap/Dropdown';
+import ProfileModal from '../screens/Profile';
+import LogoutButton from '../Logout';
+import { useAuth0 } from '@auth0/auth0-react';
+import image from '../assets/backgroundImage.png';
 
 function NavBarList() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -27,7 +28,13 @@ function NavBarList() {
     <ThemeContext.Consumer>
       {({ theme, toggleTheme }) => (
         <div>
-          <Navbar data-bs-theme="dark" style={{backgroundColor:'#3E001F'}}>
+          <Navbar
+            data-bs-theme="dark"
+            className='navbar-image'
+            style={{
+              backgroundImage: `url(${image})`,
+            }}
+          >
             <Container>
               <Navbar.Brand>Museumify</Navbar.Brand>
               <Nav className="me-auto">
@@ -39,7 +46,7 @@ function NavBarList() {
               <div className="switch">
                 <ReactSwitch
                   onChange={toggleTheme}
-                  checked={theme === "dark"}
+                  checked={theme === 'dark'}
                 />
               </div>
               <div className="user-info">
@@ -70,7 +77,12 @@ function NavBarList() {
                     </Dropdown.Menu>
                   </Dropdown>
                 ) : (
-                  <button onClick={loginWithRedirect} style={{borderRadius:'10px',marginLeft:'5px'}}>Log in</button>
+                  <button
+                    onClick={loginWithRedirect}
+                    style={{ borderRadius: '10px', marginLeft: '5px' }}
+                  >
+                    Log in
+                  </button>
                 )}
               </div>
             </Container>
