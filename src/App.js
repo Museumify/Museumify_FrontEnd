@@ -5,8 +5,10 @@ import NavBarList from './components/navComponent/NavBarList';
 import { SearchBar } from './components/SearchBar/SearchBar';
 import FavoriteArt from './components/favoriteArt/FavoriteArt';
 import LoginButton from './components/Login';
+import Footer from './components/Footer/Footer';
 
 import Header from './components/Header';
+import ProfilePage from './components/screens/Profile';
 export const ThemeContext = createContext(null);
 
 function App() {
@@ -25,8 +27,12 @@ function App() {
           <Route path="/favorite" element={<FavoriteArt />} />
           <Route path="/header" element={<Header />} />
           <Route path="/signin" element={<LoginButton />} />
+          <Route path="/user-profile" element={<ProfilePage />} />
         </Routes>
       </div>
+      <div>
+       <Footer/>
+     </div>
     </ThemeContext.Provider>
   );
 }
