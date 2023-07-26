@@ -71,7 +71,8 @@ function FavoriteArt() {
         {
           userFavArt.length > 0 ?
           userFavArt.map((art, id) => (
-            <Card key={id} style={{ width: '18rem' }}>
+            <div>
+            <Card key={id} style={{ width: '18rem',overflow: 'auto'}} >
               <Card.Img variant="top" src={`${art.image}`} style={{ height: '300px', objectFit: 'cover' }} />
               <Card.Body>
                 <Card.Title>{art.title}</Card.Title>
@@ -88,6 +89,7 @@ function FavoriteArt() {
                 }}>Update</Button>
               </Card.Body>
             </Card>
+            </div>
           ))
           :
           "No fav list"

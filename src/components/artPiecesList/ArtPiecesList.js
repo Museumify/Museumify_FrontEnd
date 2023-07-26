@@ -6,8 +6,8 @@ function ArtPiecesList(props) {
     return (
         <div className="main"
             style={{
-                display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px',
-                justifyContent: 'center'
+                display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '100px',
+                justifyContent: 'center',marginLeft:'50px',marginTop:'200px'
             }}
         >
             {props.data.slice(0, 104).map((obj, i) => {

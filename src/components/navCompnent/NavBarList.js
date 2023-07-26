@@ -27,7 +27,7 @@ function NavBarList() {
     <ThemeContext.Consumer>
       {({ theme, toggleTheme }) => (
         <div>
-          <Navbar bg="dark" data-bs-theme="dark">
+          <Navbar data-bs-theme="dark" style={{backgroundColor:'#3E001F'}}>
             <Container>
               <Navbar.Brand>Museumify</Navbar.Brand>
               <Nav className="me-auto">
@@ -70,7 +70,7 @@ function NavBarList() {
                     </Dropdown.Menu>
                   </Dropdown>
                 ) : (
-                  <button onClick={loginWithRedirect}>Log in</button>
+                  <button onClick={loginWithRedirect} style={{borderRadius:'10px',marginLeft:'5px'}}>Log in</button>
                 )}
               </div>
             </Container>

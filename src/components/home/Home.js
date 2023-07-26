@@ -2,6 +2,7 @@ import React from 'react'
 import './Home.css'; 
 import {useState,useEffect } from "react"; 
 import ArtPiecesList from '../artPiecesList/ArtPiecesList';
+import Slider from './Slider';
 
 
 
@@ -28,9 +29,15 @@ function Home(){
         
     }, []);
     return(
-        <div>
+        <div >
+            <div style={{margin:'8px',marginTop:'25px'}} >
+                <Slider/>
+            </div>
+             <div>
             <ArtPiecesList data={data} commentHandler={commentHandler}/>
+            </div>
         </div>
+       
         
     )
 }

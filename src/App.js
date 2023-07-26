@@ -15,10 +15,11 @@ function App() {
     setTheme((curr) => (curr === "light" ? "dark" : "light"));
   };
 
+  //style={{backgroundColor:"#FAF0D7"}}
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div className="App" id={theme}>
-        <NavBarList />
+      <div className="App" id={theme} >
+        <NavBarList/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/favorite" element={<FavoriteArt />} />

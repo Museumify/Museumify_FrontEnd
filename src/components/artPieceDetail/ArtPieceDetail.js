@@ -70,20 +70,18 @@ function ArtPieceDetail({ handleShow, handleClose, show, DetailData, commentHand
             <Button variant="primary" type="submit">
               Submit
             </Button>
-            {isAuthenticated && (
-              <Button variant="primary" onClick={e => handleAddFav(e)}>
-                Add To Favorites
-              </Button>
-            )}
           </Form>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+
+          {isAuthenticated && (
+          <Button variant="primary" onClick={e => handleAddFav(e)}>
             Save Changes
-          </Button>
+          </Button>)}
+
         </Modal.Footer>
       </Modal>
     </div>
