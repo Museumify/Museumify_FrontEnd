@@ -34,7 +34,7 @@ function ArtPiecesList(props) {
           obj.id !== 109570 &&
           obj.id !== 166628
         ) {
-          console.log(obj);
+          // console.log(obj);
           return (
             <ArtPiece
               key={i}

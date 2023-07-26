@@ -39,7 +39,7 @@ function ArtPieceDetail({
       comment: DetailData.comment,
       userid: user.sub,
     };
-
+    console.log('data from add fav', data);
     let response = await fetch(url, {
       method: 'POST',
       headers: {
@@ -47,7 +47,7 @@ function ArtPieceDetail({
       },
       body: JSON.stringify(data),
     });
-
+    console.log(response);
     let receivedData = await response.json();
     console.log('receivedData', receivedData);
   }
