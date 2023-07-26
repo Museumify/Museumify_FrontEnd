@@ -9,6 +9,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import LogoutButton from "../Logout";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
+import image from '../assets/backgroundImage.png';
 
 
 function NavBarList() {
@@ -28,7 +29,8 @@ function NavBarList() {
     <ThemeContext.Consumer>
       {({ theme, toggleTheme }) => (
         <div>
-          <Navbar data-bs-theme="dark" style={{backgroundColor:'#3E001F'}}>
+          <Navbar data-bs-theme="dark" style={{
+              backgroundImage: `url(${image})`, }}>
             <Container >
             <img
                 src="/logo.png"
@@ -47,7 +49,7 @@ function NavBarList() {
               <div className="switch me-3">
                 <ReactSwitch
                   onChange={toggleTheme}
-                  checked={theme === "dark"}
+                  checked={theme === 'dark'}
                 />
               </div>
               <div className="user-info">

@@ -1,8 +1,7 @@
-
 .navbar-user-image {
-  width: 30px; 
-  height: 30px; 
-  border-radius: 50%; 
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 }
 
 .user-info .dropdown {
@@ -31,3 +30,7 @@
 }
 
 
+.navbar-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
