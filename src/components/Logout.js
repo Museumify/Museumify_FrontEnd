@@ -7,7 +7,7 @@ const LogoutButton = () => {
 
     return (
         isAuthenticated && (
-            <Dropdown.Item onClick={() => logout()}>
+            <Dropdown.Item onClick={() => logout()} style={{textAlign:"center"}}>
                 Sign Out
             </Dropdown.Item>
         )

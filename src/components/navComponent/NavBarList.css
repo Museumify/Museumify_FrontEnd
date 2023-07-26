@@ -1,7 +1,7 @@
 
 .navbar-user-image {
-  width: 30px; 
-  height: 30px; 
+  width: 40px; 
+  height: 40px; 
   border-radius: 50%; 
 }
 
@@ -9,4 +9,34 @@
   position: relative;
   top: 2px;
 }
+
+.dropdown-menu {
+  background-color: #f8f9fa; 
+  border: none; 
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+  right: 100; 
+
+}
+
+
+.dropdown-item:last-child {
+  color: #dc3545; 
+  border-bottom: none; 
+}
+
+
+.dropdown-menu::after {
+  content: "";
+  display: block;
+  right: 150%; /* Adjust this value as needed */
+  height: 1px;
+  background-color: lightgray;
+  margin: 8px 16px;
+  /* transform: translateX(50%); Add this line to center the underline */
+}
+
+
+
+
+
 

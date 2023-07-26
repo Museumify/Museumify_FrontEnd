@@ -26,9 +26,9 @@ function NavBarList() {
   return (
     <ThemeContext.Consumer>
       {({ theme, toggleTheme }) => (
-        <div>
+        <div style={{paddingBottom:"100px"}}>
           <Navbar data-bs-theme="dark" style={{backgroundColor:'#3E001F'}}>
-            <Container>
+            <Container style={{maxWidth:"100%"}}>
               <Navbar.Brand>Museumify</Navbar.Brand>
               <Nav className="me-auto">
                 <Nav.Link href="/">Home</Nav.Link>
@@ -43,32 +43,35 @@ function NavBarList() {
                 />
               </div>
               <div className="user-info">
-                {isAuthenticated ? (
-                  <Dropdown show={menuOpen} alignRight>
-                    <Dropdown.Toggle
-                      variant="link"
-                      id="user-dropdown-toggle"
-                      onClick={handleMenuToggle}
-                    >
-                      {user?.picture && (
-                        <img
-                          src={user.picture}
-                          alt={user.name}
-                          className="navbar-user-image"
-                        />
-                      )}
-                    </Dropdown.Toggle>
+              {isAuthenticated ? (
+  <Dropdown  show={menuOpen} alignRight>
+    <Dropdown.Toggle
+      variant="link"
+      id="user-dropdown-toggle"
+      onClick={handleMenuToggle}
+    >
+     <div  className="user-picture-container">
+  {user?.picture && (
+    <img
+      src={user.picture}
+      alt={user.name}
+      className="navbar-user-image"
+    />
+  )}
+</div >
+    </Dropdown.Toggle >
 
-                    <Dropdown.Menu>
-                      <Dropdown.Item>{user?.name}</Dropdown.Item>
-                      <Dropdown.Item onClick={handleToggleModal}>
-                        Your Profile
-                      </Dropdown.Item>
-                      <Dropdown.Item>
-                        <LogoutButton />
-                      </Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
+    <Dropdown.Menu style={{left:-160}}>
+      <Dropdown.Item>{user?.name}</Dropdown.Item>
+      <Dropdown.Item onClick={handleToggleModal}>
+        Your Profile
+      </Dropdown.Item>
+      <Dropdown.Divider style={{ borderColor: "lightgray" }} />
+      <Dropdown.Item>
+        <LogoutButton />
+      </Dropdown.Item>
+    </Dropdown.Menu>
+  </Dropdown>
                 ) : (
                   <button onClick={loginWithRedirect} style={{borderRadius:'10px',marginLeft:'5px'}}>Log in</button>
                 )}
