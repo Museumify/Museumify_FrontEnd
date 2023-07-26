@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import ArtPiecesList from '../artPiecesList/ArtPiecesList';
 import Slider from './Slider';
 
+
 function Home({ searchUrl }) {
   const [data, setData] = useState([]);
 
@@ -46,6 +47,7 @@ function Home({ searchUrl }) {
     <div>
       <ArtPiecesList data={data} commentHandler={commentHandler} />
     </div>
+
     </div>
   );
 }

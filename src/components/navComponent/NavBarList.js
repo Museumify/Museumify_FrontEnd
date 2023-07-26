@@ -6,37 +6,45 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import ReactSwitch from "react-switch";
 import Dropdown from "react-bootstrap/Dropdown";
-import ProfileModal from "../screens/Profile";
 import LogoutButton from "../Logout";
 import { useAuth0 } from "@auth0/auth0-react";
+import { Link } from "react-router-dom";
+
 
 function NavBarList() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
   const { user, isAuthenticated, loginWithRedirect } = useAuth0();
 
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
   };
 
-  const handleToggleModal = () => {
-    setShowModal((prevState) => !prevState);
-  };
+  // const handleToggleModal = () => {
+  //   setShowModal((prevState) => !prevState);
+  // };
 
   return (
     <ThemeContext.Consumer>
       {({ theme, toggleTheme }) => (
         <div>
           <Navbar data-bs-theme="dark" style={{backgroundColor:'#3E001F'}}>
-            <Container>
-              <Navbar.Brand>Museumify</Navbar.Brand>
+            <Container >
+            <img
+                src="/logo.png"
+                alt="Logo"
+                className="logo-image"
+              />
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <Navbar.Brand style={{fontFamily: 'Megrim', fontSize:"30px"}}>Museumify</Navbar.Brand>
+            </Link>
               <Nav className="me-auto">
-                <Nav.Link href="/">Home</Nav.Link>
                 {isAuthenticated && (
-                  <Nav.Link href="/favorite">Favorite Art</Nav.Link>
+                  <Nav.Link href="/favorite" style={{fontFamily: 'DaiBannaSIL'}} >Favorite Art</Nav.Link>
                 )}
               </Nav>
-              <div className="switch">
+              <div className="d-flex align-items-center ml-auto">
+              <div className="switch me-3">
                 <ReactSwitch
                   onChange={toggleTheme}
                   checked={theme === "dark"}
@@ -61,7 +69,7 @@ function NavBarList() {
 
                     <Dropdown.Menu>
                       <Dropdown.Item>{user?.name}</Dropdown.Item>
-                      <Dropdown.Item onClick={handleToggleModal}>
+                      <Dropdown.Item as={Link} to="/user-profile">
                         Your Profile
                       </Dropdown.Item>
                       <Dropdown.Item>
@@ -70,15 +78,12 @@ function NavBarList() {
                     </Dropdown.Menu>
                   </Dropdown>
                 ) : (
-                  <button onClick={loginWithRedirect} style={{borderRadius:'10px',marginLeft:'5px'}}>Log in</button>
+                  <button  className="login-button" onClick={loginWithRedirect} style={{borderRadius:'10px',marginLeft:'5px',fontFamily: 'DaiBannaSIL'}}>Log in</button>
                 )}
+              </div>
               </div>
             </Container>
           </Navbar>
-          <ProfileModal
-            showModal={showModal}
-            handleToggleModal={handleToggleModal}
-          />
         </div>
       )}
     </ThemeContext.Consumer>

@@ -5,6 +5,7 @@ import { Card, Button } from 'react-bootstrap';
 import NewCardForm from './NewCardForm';
 import { useAuth0 } from '@auth0/auth0-react';
 
+
 function FavoriteArt() {
   const [favArt, setFavArt] = useState([]);
   const [show, setShow] = useState(false);
