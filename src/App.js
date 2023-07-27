@@ -4,7 +4,8 @@ import { Routes, Route } from 'react-router-dom';
 import NavBarList from './components/navComponent/NavBarList';
 import { SearchBar } from './components/SearchBar/SearchBar';
 import FavoriteArt from './components/favoriteArt/FavoriteArt';
-import LoginButton from './components/Login';
+import LoginButton from './components/Login'; 
+import AboutUs from './components/aboutUs/AboutUS';
 
 import Header from './components/Header';
 export const ThemeContext = createContext(null);
@@ -25,6 +26,7 @@ function App() {
           <Route path="/favorite" element={<FavoriteArt />} />
           <Route path="/header" element={<Header />} />
           <Route path="/signin" element={<LoginButton />} />
+          <Route path="/aboutus" element={<AboutUs />} />
         </Routes>
       </div>
     </ThemeContext.Provider>
