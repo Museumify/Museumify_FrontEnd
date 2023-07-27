@@ -4,6 +4,7 @@ label {
   width: 60px;
   height: 30px;
   color: rgb(6, 6, 145);
+  margin-top: 5px;
 }
 
 /* span {
@@ -34,10 +35,11 @@ input:checked + span {
 
 input:checked + span:before {
   transform: translateX(29px);
+
 }
 strong {
   position: absolute;
-  left: -50px;
+  left: -30px;
   width: max-content;
   line-height: 30px;
   margin-left: 10px;

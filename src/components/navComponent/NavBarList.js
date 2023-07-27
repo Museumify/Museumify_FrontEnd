@@ -13,53 +13,65 @@ import image from "../assets/backgroundImage.png";
 
 function NavBarList() {
   const [menuOpen, setMenuOpen] = useState(false);
-  // const [showModal, setShowModal] = useState(false);
   const { user, isAuthenticated, loginWithRedirect } = useAuth0();
 
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
   };
 
-  // const handleToggleModal = () => {
-  //   setShowModal((prevState) => !prevState);
-  // };
-
   return (
     <ThemeContext.Consumer>
       {({ theme, toggleTheme }) => (
-        <div style={{ paddingBottom: "100px" }}>
+        <div style={{ paddingBottom: "20px" }}>
           <Navbar
             data-bs-theme="dark"
             style={{
               backgroundImage: `url(${image})`,
             }}
           >
-            <Container style={{ maxWidth: "100%" }}>
+            <Container style={{ maxWidth: "100%", height:"55px" }}>
               <img src="/logo.png" alt="Logo" className="logo-image" />
               <Link to="/" style={{ textDecoration: "none" }}>
                 <Navbar.Brand
-                  style={{ fontFamily: "Megrim", fontSize: "30px", fontWeigh:"bold" }}
-                >
-                  Museumify
+                  style={{
+                    fontFamily: "Megrim",
+                    fontSize: "40px",
+                  }}
+                ><b>Museumify</b>
+                  
                 </Navbar.Brand>
               </Link>
-              <Nav className="me-auto">
+              
+              <Nav className="me-auto" style={{marginLeft:"280px"} }>
                 {isAuthenticated && (
                   <Nav.Link
                     href="/favorite"
-                    style={{ fontFamily: "DaiBannaSIL" }}
+                    style={{ fontFamily: "DaiBannaSIL", color:"white",fontSize:"20px" }}
                   >
                     Favorite Art
                   </Nav.Link>
                 )}
-              </Nav>
-              <div className="d-flex align-items-center ml-auto">
+                <Nav.Link
+                    href="/favorite"
+                    style={{ fontFamily: "DaiBannaSIL", color:"white",fontSize:"20px", marginLeft:"35px" }}
+                  >
+                    About Us
+                  </Nav.Link>
+                </Nav>
+              
+              <div className="d-flex align-items-center ml-auto ">
                 <div className="switch me-3">
                   <ReactSwitch
                     onChange={toggleTheme}
                     checked={theme === "dark"}
                   />
+                  {theme === "dark" ? 
+                  (<i className="fas fa-moon" style={{ color: "#f5efdb", marginLeft: "5px" }}></i>) 
+                  :
+                   (<i className="fas fa-sun" style={{ color: "#f5efdb", marginLeft: "5px" }}></i>
+                   )}
                 </div>
+
                 <div className="user-info">
                   {isAuthenticated ? (
                     <Dropdown show={menuOpen} alignRight>
@@ -68,7 +80,7 @@ function NavBarList() {
                         id="user-dropdown-toggle"
                         onClick={handleMenuToggle}
                       >
-                        <div className="user-picture-container">
+                        <div className="user-picture-container" style={{marginTop:"20px"}}>
                           {user?.picture && (
                             <img
                               src={user.picture}
@@ -79,16 +91,16 @@ function NavBarList() {
                         </div>
                       </Dropdown.Toggle>
 
-                      <Dropdown.Menu style={{ left: -160 }}>
-                        <Dropdown.Item>{user?.name}</Dropdown.Item>
-                        <Dropdown.Item as={Link} to="/user-profile">
+                      <Dropdown.Menu style={{ left: -129 , backgroundColor:"#f4edd7"   }}>
+                        <Dropdown.Item style={{color:"black"}}>{user?.name}</Dropdown.Item>
+                        <Dropdown.Item style={{color:"black"}}as={Link} to="/user-profile">
                           Your Profile
                         </Dropdown.Item>
                         <Dropdown.Divider
                           style={{ borderColor: "lightgray" }}
                         />
-                        <Dropdown.Item>
-                          <LogoutButton />
+                        <Dropdown.Item >
+                          <LogoutButton  />
                         </Dropdown.Item>
                       </Dropdown.Menu>
                     </Dropdown>
@@ -116,3 +128,7 @@ function NavBarList() {
 }
 
 export default NavBarList;
+
+
+
+

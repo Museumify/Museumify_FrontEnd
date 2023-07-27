@@ -5,7 +5,6 @@ import { useState } from 'react';
 import ArtPieceDetail from '../artPieceDetail/ArtPieceDetail';
 
 function ArtPiece(props) {
-    //console.log(props.data.id);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
