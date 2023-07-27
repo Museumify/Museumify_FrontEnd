@@ -38,7 +38,7 @@ function NavBarList() {
               <img src="/logo.png" alt="Logo" className="logo-image" />
               <Link to="/" style={{ textDecoration: "none" }}>
                 <Navbar.Brand
-                  style={{ fontFamily: "Megrim", fontSize: "30px" }}
+                  style={{ fontFamily: "Megrim", fontSize: "30px", fontWeigh:"bold" }}
                 >
                   Museumify
                 </Navbar.Brand>
