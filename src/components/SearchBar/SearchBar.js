@@ -44,7 +44,7 @@ export const SearchBar = () => {
     <div>
       <div className="search-bar-container">
         <div className="toggle-container">
-          <Toggle label="Filter" toggled={isLabelToggled} onClick={logState} />
+          <Toggle toggled={isLabelToggled} onClick={logState} />
         </div>
         <div className="input-wrapper">
           <FaSearch id="search-icon" />

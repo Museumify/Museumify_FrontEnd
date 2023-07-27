@@ -3,6 +3,8 @@ import './Home.css';
 import { useState, useEffect } from 'react';
 import ArtPiecesList from '../artPiecesList/ArtPiecesList';
 import Slider from './Slider';
+import { SearchBar } from '../SearchBar/SearchBar';
+
 
 function Home({ searchUrl }) {
   const [data, setData] = useState([]);
@@ -46,6 +48,7 @@ function Home({ searchUrl }) {
     <div>
       <ArtPiecesList data={data} commentHandler={commentHandler} />
     </div>
+
     </div>
   );
 }

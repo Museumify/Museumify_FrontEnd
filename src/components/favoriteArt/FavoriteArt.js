@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import NewCardForm from './NewCardForm';
 import { useAuth0 } from '@auth0/auth0-react';
+import image from "../assets/backgroundImage.png";
+
 
 function FavoriteArt() {
   const [favArt, setFavArt] = useState([]);
@@ -61,20 +63,25 @@ function FavoriteArt() {
 
   return (
     <div>
-    <div style={{ float: 'left', width: '100%' }}>
-      <Button
-        style={{
-          marginTop: '20px',
-          float: 'right',
-          marginRight: '20px',
-          borderRadius: '50px',
-        }}
-        onClick={handleShow}
-        variant="secondary"
-      >
-        <h1 style={{ paddingLeft: '10px', paddingRight: '10px' }}>+</h1>
-      </Button>
-    </div>
+      <div style={{ float: 'left', width: '100%' }} title="Add Your Art Piece!">
+        <Button
+          style={{
+            marginTop: '0px',
+            float: 'right',
+            marginRight: '20px',
+            borderRadius: '70px',
+            // backgroundColor:"#C88EA7"
+            backgroundImage: `url(${image})`,
+            borderStyle:"none",
+          }}
+          onClick={handleShow}
+          variant="secondary"
+        >
+          <h1 style={{ paddingLeft: '10px', paddingRight: '10px' }}>+</h1>
+        </Button>
+      </div>
+
+      
 
     <div className="card" style={{ display: 'flex', flexWrap: 'wrap' , flexDirection:'row'}}>
       {userFavArt.length > 0 ? (
