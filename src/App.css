@@ -4,9 +4,14 @@
   margin: 0;
   padding: 0;
 }
+/*======================================*/
 
-#light{background-color: white;}
-#dark{background-color: #282c34;}
+
+
+/*======================================*/
+#light{background-color:#f5efdb;}
+/* #dark{background-color: #282c34;} */
+#dark{background-color: #141105;} 
 
 .switch{
   display:flex;

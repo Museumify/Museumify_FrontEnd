@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import NewCardForm from './NewCardForm';
 import { useAuth0 } from '@auth0/auth0-react';
+import image from "../assets/backgroundImage.png";
 
 
 function FavoriteArt() {
@@ -62,13 +63,16 @@ function FavoriteArt() {
 
   return (
     <div>
-      <div style={{ float: 'left', width: '100%' }}>
+      <div style={{ float: 'left', width: '100%' }} title="Add Your Art Piece!">
         <Button
           style={{
-            marginTop: '20px',
+            marginTop: '0px',
             float: 'right',
             marginRight: '20px',
-            borderRadius: '50px',
+            borderRadius: '70px',
+            // backgroundColor:"#C88EA7"
+            backgroundImage: `url(${image})`,
+            borderStyle:"none",
           }}
           onClick={handleShow}
           variant="secondary"

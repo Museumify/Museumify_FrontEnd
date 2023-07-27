@@ -11,8 +11,8 @@ const ProfilePage = () => {
   return (
   <>
     <Container className="profile-container">
-      <h1 className="profile-title">Your Profile</h1>
-    <Card className="profile-card" style={{ maxWidth: "400px" }}>
+      {/* <h1 className="profile-title" style={{fontFamily: "DaiBannaSIL"}}>Your Profile</h1> */}
+    <Card className="profile-card" style={{ maxWidth: "400px",height:"100%", backgroundColor: "#FFECAF"  }}>
       <div className="profile-image-container">
         {user?.picture && (
           <img
