@@ -6,6 +6,7 @@ import { SearchBar } from './components/SearchBar/SearchBar';
 import FavoriteArt from './components/favoriteArt/FavoriteArt';
 import LoginButton from './components/Login';
 import Footer from './components/Footer/Footer';
+import AboutUs from './components/aboutUs/AboutUS';
 
 import Header from './components/Header';
 import ProfilePage from './components/screens/Profile';
@@ -28,6 +29,7 @@ function App() {
           <Route path="/header" element={<Header />} />
           <Route path="/signin" element={<LoginButton />} />
           <Route path="/user-profile" element={<ProfilePage />} />
+          <Route path="/aboutus" element={<AboutUs />} />
         </Routes>
       </div>
       <div>

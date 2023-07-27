@@ -1,0 +1,62 @@
+/* 
+I tried to do it exteranaly but somthing went wrong I will try again 
+.outer-div {
+    float: left;
+    width: 100%;
+  }
+  
+ 
+  .custom-button {
+    margin-top: 20px;
+    float: right;
+    margin-right: 20px;
+    border-radius: 50px;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  
+  .card {
+    flex: 0 0 calc(33.33% - 20px);
+    margin: 10px;
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  
+  .image-div {
+    height: 300px;
+    width: 400px;
+  }
+  
+  
+  .card-img {
+    height: 300px;
+    object-fit: contain;
+    width: 300px;
+  }
+  
+  
+  .text-div {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin-left: 20px;
+  }
+  
+  
+  .custom-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  
+  .custom-buttons button {
+    margin-right: 40px;
+  }
+   I tried to do it exteranaly but somthing went wrong I will try again */

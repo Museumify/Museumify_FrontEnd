@@ -1,0 +1,75 @@
+
+
+.about-us-container {
+    background-color: #f9f9f9;
+    padding: 50px 20px;
+    text-align: center; 
+    
+  }
+  
+  .about-us-header {
+    margin-bottom: 30px;
+  }
+  
+  .about-us-header h1 {
+    font-size: 36px;
+    color: #333;
+  }
+  
+  .about-us-header p {
+    font-size: 16px;
+    color: #666;
+    max-width: 1200px;
+  }
+  
+  .developers-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-width: 1200px;
+    margin: 0 auto; 
+  }
+  
+  .developer-card {
+    width: 30%;
+    margin-bottom: 30px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease; 
+    display: flex; 
+    flex-direction: column;
+  }
+  
+  .developer-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .developer-img {
+    height: 300px;
+    object-fit: cover;
+    background-color: #ddd;
+  }
+  
+  .developer-info {
+    padding: 20px;
+  }
+  
+  .developer-info h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .developer-info h3 {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  .developer-info p {
+    font-size: 14px;
+    color: #888;
+  }
+  
