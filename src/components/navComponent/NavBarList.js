@@ -52,7 +52,7 @@ function NavBarList() {
                   </Nav.Link>
                 )}
                 <Nav.Link
-                    href="/favorite"
+                    href="/aboutus"
                     style={{ fontFamily: "DaiBannaSIL", color:"white",fontSize:"20px", marginLeft:"35px" }}
                   >
                     About Us

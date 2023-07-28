@@ -10,6 +10,21 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   font-Family: DaiBannaSIL;
 }
+.profile-card.dark {
+  background-color: #222; /* Example dark background color */
+  color: white;  /* Example text color for dark mode */
+} 
+.profile-card.light{
+  background-color:  #FFECAF; /* Example dark background color */
+  color: #141105;  /* Example text color for dark mode */
+}  
+
+.profile-title.dark {
+  color: white;  /* Example text color for dark mode */
+} 
+.profile-title.light {
+  color:  #141105;  /* Example text color for dark mode */
+} 
 
 .profile-image-container {
   margin-top: 20px;

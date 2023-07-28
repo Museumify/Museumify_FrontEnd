@@ -1,10 +1,12 @@
-import React from 'react';
+import { React ,useContext }from 'react';
 import './FavoriteArt.css';
 import { useEffect, useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import NewCardForm from './NewCardForm';
 import { useAuth0 } from '@auth0/auth0-react';
-import image from "../assets/backgroundImage.png";
+import image from "../assets/backgroundImage.png"; 
+import { ThemeContext } from '../../App'; 
+
 
 
 function FavoriteArt() {
@@ -13,6 +15,7 @@ function FavoriteArt() {
   const { user, isAuthenticated } = useAuth0();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   async function handleFavArt() {
     const url = `${process.env.REACT_APP_SERVER_URL}/allArts`;
@@ -81,38 +84,73 @@ function FavoriteArt() {
         </Button>
       </div>
 
-      <div className="main">
-        
-        {
-          userFavArt.length > 0 ?
-          userFavArt.map((art, id) => (
-            <div>
-            <Card key={id} style={{ width: '18rem',overflow: 'auto'}} >
-              <Card.Img variant="top" src={`${art.image}`} style={{ height: '300px', objectFit: 'cover' }} />
-              <Card.Body>
-                <Card.Title>{art.title}</Card.Title>
-                <Card.Text> {(art.artist)} </Card.Text>
-                <Card.Text>{(art.description)}</Card.Text>
-                <Card.Text> {(art.place)} </Card.Text>
-                <Card.Text> {(art.comment)} </Card.Text>
-                <Button variant="danger" style={{ position: 'absolute', bottom: '2px', left: '30%', transform: 'translateX(-50%)' }} onClick={() => handleDelete(art.id)}>Delete</Button>
-                <Button variant="success" style={{ position: 'absolute', bottom: '2px', left: '70%', transform: 'translateX(-50%)' }} onClick={() => {
-                  const updatedComment = prompt('Enter the updated comment:');
-                  if (updatedComment !== null && updatedComment.trim() !== '') {
-                    handleUpdate(art.id, updatedComment);
-                  }
-                }}>Update</Button>
-              </Card.Body>
-            </Card>
+      
+
+    <div className={`card ${theme === 'dark' ? 'dark' : 'light'}`} style={{ display: 'flex', flexWrap: 'wrap' , 
+    flexDirection:'row', fontFamily: "Lucida Console" ,paddingBottom:'50px'}}>
+      {userFavArt.length > 0 ? (
+        userFavArt.map((art, id) => (
+          <Card className={`onecard ${theme === 'dark' ? 'dark' : 'light'}`}
+            key={id}
+            style={{
+              flex: '0 0 calc(49% - 15px)',
+              margin: '10px',
+              overflow: 'auto',
+              display: 'flex',
+              flexDirection:'row',
+              
+              }}
+          >
+            
+            <Card.Img src={`${art.image}`} alt={"Logo"}
+             style={{ width:'300px' ,height :"300px" }}/>
+               
+             
+             
+            
+            <div style={{ display: 'flex', flexDirection: 'column',textAlign:'start'
+            ,marginLeft:"20px" ,justifyContent:'space-evenly'  }}> 
+
+              <Card.Title>{art.title}</Card.Title>
+              <Card.Text>{art.artist}</Card.Text>
+             
+              <Card.Text>{art.place}</Card.Text>
+              <Card.Text>{art.comment}</Card.Text>
+              <div style={{ display: 'flex', justifyContent:'center', marginBottom:"10px"}}>
+                <Button style={{marginRight:'40px'}}
+                  variant="danger"
+                  onClick={() => handleDelete(art.id)}
+                >
+                  Delete
+                </Button>
+                <Button
+                  style={{
+                    float: "right",
+                    fontFamily: "Lucida Console",
+                    backgroundColor: "#BA704F",
+                    border: "none",
+                  }}
+                  onClick={() => {
+                    const updatedComment = prompt('Enter the updated comment:');
+                    if (updatedComment !== null && updatedComment.trim() !== '') {
+                      handleUpdate(art.id, updatedComment);
+                    }
+                  }}
+                >
+                  Update
+                </Button>
+              </div>
             </div>
-          ))
-          :
-          "No Favorite Art Pieces Were Added"
-        }
-        <NewCardForm handleClose={handleClose} handleShow={handleShow} show={show} />
-      </div>
+          </Card>
+        ))
+      ) : (
+        <div>No Favorite Art Pieces Were Added</div>
+      )}
+      <NewCardForm handleClose={handleClose} handleShow={handleShow} show={show} />
     </div>
+  </div>
   );
+
 }
 
 export default FavoriteArt;

@@ -3,8 +3,9 @@ import "./ArtPieceDetail.css";
 import { Button, Form } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import { useRef, useState } from "react";
-
 import { useAuth0 } from "@auth0/auth0-react";
+import FavoriteArt from "../favoriteArt/FavoriteArt";
+
 
 function ArtPieceDetail({
   handleShow,
@@ -39,6 +40,20 @@ function ArtPieceDetail({
       comment: DetailData.comment,
       userid: user.sub,
     };
+    // Fetch the user's favorite arts from the database
+  const favArtDataresponse = await fetch(`${process.env.REACT_APP_SERVER_URL}/allArts`);
+  const favArtData = await favArtDataresponse.json();
+
+  // Check if the image already exists in the user's favorite arts
+  const existingArt = favArtData.find(
+    (art) => art.userid === user.sub && art.image === DetailData.image
+  );
+  if (existingArt) {
+    alert('This image is already added to favorites.');
+    return; // Do not add the image again
+  }
+
+ 
     console.log("data from add fav", data);
     let response = await fetch(url, {
       method: "POST",
