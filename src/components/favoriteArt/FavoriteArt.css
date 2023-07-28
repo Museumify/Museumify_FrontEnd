@@ -59,4 +59,24 @@ I tried to do it exteranaly but somthing went wrong I will try again
   .custom-buttons button {
     margin-right: 40px;
   }
-   I tried to do it exteranaly but somthing went wrong I will try again */
+   I tried to do it exteranaly but somthing went wrong I will try again */ 
+   .card.dark {
+    background-color: #141105; /* Example dark background color */
+    color: #fff;  /* Example text color for dark mode */
+  } 
+  .card.light{
+    background-color: #f5efdb; /* Example dark background color */
+    color: #141105;  /* Example text color for dark mode */
+  }  
+   .onecard.dark {
+    background-color: #222; /* Example dark background color */
+    color: #fff;  /* Example text color for dark mode */
+  } 
+  .onecard.light{
+    background-color:  #FFECAF; /* Example dark background color */
+    color: #141105;  /* Example text color for dark mode */
+  }  
+
+
+
+  

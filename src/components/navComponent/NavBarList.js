@@ -52,7 +52,7 @@ function NavBarList() {
                   </Nav.Link>
                 )}
                 <Nav.Link
-                    href="/favorite"
+                    href="/aboutus"
                     style={{ fontFamily: "DaiBannaSIL", color:"white",fontSize:"20px", marginLeft:"35px" }}
                   >
                     About Us
@@ -92,7 +92,7 @@ function NavBarList() {
                       </Dropdown.Toggle>
 
                       <Dropdown.Menu style={{ left: -129 , backgroundColor:"#f4edd7"   }}>
-                        <Dropdown.Item style={{color:"black"}}>{user?.name}</Dropdown.Item>
+                        <Dropdown.Item className="dropdown-item" style={{color:"black"}}>{user?.name}</Dropdown.Item>
                         <Dropdown.Item style={{color:"black"}}as={Link} to="/user-profile">
                           Your Profile
                         </Dropdown.Item>

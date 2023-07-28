@@ -1,9 +1,26 @@
 
+.about-us-container.dark {
+  background-color: #141105; /* Example dark background color */
+  color: white;  /* Example text color for dark mode */
+} 
+.about-us-container.light{
+  background-color: #f5efdb; /* Example dark background color */
+  color: #141105;  /* Example text color for dark mode */
+}  
+ .developer-card.dark {
+  background-color: #222; /* Example dark background color */
+  color: white;  /* Example text color for dark mode */
+} 
+.developer-card.light{
+  background-color:  #FFECAF; /* Example dark background color */
+  color: #141105;  /* Example text color for dark mode */
+}  
 
 .about-us-container {
     background-color: #f9f9f9;
     padding: 50px 20px;
     text-align: center; 
+    font-Family: "Lucida Console"
     
   }
   
@@ -13,12 +30,11 @@
   
   .about-us-header h1 {
     font-size: 36px;
-    color: #333;
+    
   }
   
   .about-us-header p {
     font-size: 16px;
-    color: #666;
     max-width: 1200px;
   }
   

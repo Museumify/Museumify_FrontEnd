@@ -1,10 +1,10 @@
-import React from 'react';
+import { React ,useContext }from 'react';
 import { Card} from 'react-bootstrap';
 import './AboutUs.css';
-
+import { ThemeContext } from '../../App';
 const developers = [
     {image: 'Reneh.jpg',
-    name: 'Reneh Al Madanat',
+    name: 'Reneh Al-Madanat',
     bio: 'A fresh graduate who is looking forward to starting her career path in programming.',
     email: 'Renehm2001@gmail.com',
     github: 'Reneh7',
@@ -15,21 +15,22 @@ const developers = [
     email: 'balqeesalqudah97@gmail.com',
     github: 'balqeesqud',
     role:'',
-    bio:'',
+    bio:' Chemical Engineer, switching career to programming.First contribution for building a live website.'
+    ,
   },
   { image: 'Mosab.JPG',
     name: "Mosu'ab Al-borini",
     email: 'mosubborini2000@gmail.com',
     github: 'mosubborini2000',
     role:'',
-    bio:'',
+    bio:'A fresh computer science graduate who is looking to enrich his knowledge in programming',
   },
   { image: 'mohmmad.jpg',
     name: 'Mohammad Darwish',
-    email: 'developer1@example.com',
+    email: 'm.darwish993@hotmail.com',
     github: 'MDarwish993',
     role:'',
-    bio:'',
+    bio:'An AI graduate who is looking to start his career as a web developer.',
   },
   {
     image: 'Naser.jpg',
@@ -47,8 +48,10 @@ const developers = [
 
 
 const AboutUs = () => {
+  const { theme } = useContext(ThemeContext);
   return (
-    <div className="about-us-container">
+    <ThemeContext.Provider value={{ theme }}>
+    <div className={`about-us-container ${theme === 'dark' ? 'dark' : 'light'}`}>
       <div className="about-us-header">
         <h1>About Museumify</h1> 
         <p>An online haven for art enthusiasts and creators alike. Immerse yourself in a captivating gallery of diverse art pieces,<br/> 
@@ -58,7 +61,7 @@ const AboutUs = () => {
       </div>
       <div className="developers-container">
         {developers.map((developer, index) => (
-          <Card key={index} className="developer-card">
+          <Card key={index} className={`developer-card ${theme === 'dark' ? 'dark' : 'light'}`}>
             <div >
               <Card.Img className="developer-img"
                 src={`${process.env.PUBLIC_URL}/dev-images/${developer.image}`}
@@ -90,6 +93,7 @@ const AboutUs = () => {
         ))}
       </div>
     </div>
+    </ThemeContext.Provider>
   );
 };
 

@@ -1,10 +1,12 @@
-import React from 'react';
+import { React ,useContext }from 'react';
 import './FavoriteArt.css';
 import { useEffect, useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import NewCardForm from './NewCardForm';
 import { useAuth0 } from '@auth0/auth0-react';
-import image from "../assets/backgroundImage.png";
+import image from "../assets/backgroundImage.png"; 
+import { ThemeContext } from '../../App'; 
+
 
 
 function FavoriteArt() {
@@ -13,6 +15,7 @@ function FavoriteArt() {
   const { user, isAuthenticated } = useAuth0();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   async function handleFavArt() {
     const url = `${process.env.REACT_APP_SERVER_URL}/allArts`;
@@ -83,13 +86,14 @@ function FavoriteArt() {
 
       
 
-    <div className="card" style={{ display: 'flex', flexWrap: 'wrap' , flexDirection:'row'}}>
+    <div className={`card ${theme === 'dark' ? 'dark' : 'light'}`} style={{ display: 'flex', flexWrap: 'wrap' , 
+    flexDirection:'row', fontFamily: "Lucida Console" ,paddingBottom:'50px'}}>
       {userFavArt.length > 0 ? (
         userFavArt.map((art, id) => (
-          <Card
+          <Card className={`onecard ${theme === 'dark' ? 'dark' : 'light'}`}
             key={id}
             style={{
-              flex: '0 0 calc(50% - 20px)',
+              flex: '0 0 calc(49% - 15px)',
               margin: '10px',
               overflow: 'auto',
               display: 'flex',
@@ -97,16 +101,15 @@ function FavoriteArt() {
               
               }}
           >
-            <div  >
-            <img src={`${art.image}`} alt={"Logo"}
-             style={{ objectFit: 'contain', width:'300px'  }}
+            
+            <Card.Img src={`${art.image}`} alt={"Logo"}
+             style={{ width:'300px' ,height :"300px" }}/>
                
-              /> 
-              
-            </div>  
+             
+             
             
             <div style={{ display: 'flex', flexDirection: 'column',textAlign:'start'
-            ,marginLeft:"20px"  }}> 
+            ,marginLeft:"20px" ,justifyContent:'space-evenly'  }}> 
 
               <Card.Title>{art.title}</Card.Title>
               <Card.Text>{art.artist}</Card.Text>
@@ -121,7 +124,12 @@ function FavoriteArt() {
                   Delete
                 </Button>
                 <Button
-                  variant="success"
+                  style={{
+                    float: "right",
+                    fontFamily: "Lucida Console",
+                    backgroundColor: "#BA704F",
+                    border: "none",
+                  }}
                   onClick={() => {
                     const updatedComment = prompt('Enter the updated comment:');
                     if (updatedComment !== null && updatedComment.trim() !== '') {
