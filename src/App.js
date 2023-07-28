@@ -9,7 +9,10 @@ import AboutUs from './components/aboutUs/AboutUS';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header';
 import ProfilePage from './components/screens/Profile';
+import "bootstrap/dist/css/bootstrap.min.css";
 export const ThemeContext = createContext(null);
+
+
 
 function App() {
   // const [theme, setTheme] = useState('light');

@@ -1,10 +1,13 @@
-import React from "react";
+import {React,useContext} from "react";
 import "./ArtPieceDetail.css";
 import { Button, Form } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import { useRef, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import FavoriteArt from "../favoriteArt/FavoriteArt";
+import { ThemeContext } from '../../App';
+
+
 
 
 function ArtPieceDetail({
@@ -16,6 +19,7 @@ function ArtPieceDetail({
   artkey,
 }) {
   const { user, isAuthenticated } = useAuth0();
+ 
 
   const [comment, setComment] = useState("");
   const commentRef = useRef();
@@ -40,20 +44,16 @@ function ArtPieceDetail({
       comment: DetailData.comment,
       userid: user.sub,
     };
-    // Fetch the user's favorite arts from the database
+    
   const favArtDataresponse = await fetch(`${process.env.REACT_APP_SERVER_URL}/allArts`);
   const favArtData = await favArtDataresponse.json();
-
-  // Check if the image already exists in the user's favorite arts
   const existingArt = favArtData.find(
     (art) => art.userid === user.sub && art.image === DetailData.image
   );
   if (existingArt) {
     alert('This image is already added to favorites.');
-    return; // Do not add the image again
+    return; 
   }
-
- 
     console.log("data from add fav", data);
     let response = await fetch(url, {
       method: "POST",
@@ -66,16 +66,17 @@ function ArtPieceDetail({
     let receivedData = await response.json();
     console.log("receivedData", receivedData);
   }
-
+  const { theme } = useContext(ThemeContext);
   return (
+    <ThemeContext.Provider value={{ theme }}>
     <div>
-      <Modal show={show} onHide={handleClose} size="xl" className="my-modal">
-        <Modal.Header closeButton>
-          <Modal.Title>
+      <Modal show={show} onHide={handleClose} size="xl" className="my-modal" >
+        <Modal.Header closeButton className={`my-modal ${theme === 'dark' ? 'dark' : 'light'}`}>
+          <Modal.Title className={`my-modal ${theme === 'dark' ? 'dark' : 'light'}`}>
             <h1 style={{ fontFamily: "Lucida Console" }}>{DetailData.title}</h1>
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className={`my-modal ${theme === 'dark' ? 'dark' : 'light'}`}>
           <div style={{ width: "40%", float: "left" }}>
             <img
               style={{ width: "100%", height: "400px" }}
@@ -95,6 +96,7 @@ function ArtPieceDetail({
                     ref={commentRef}
                     type="text"
                     placeholder="Type Your Comment here"
+                    className={`CardField ${theme === 'dark' ? 'dark' : 'light'}`}
                   />
                 </Form.Group>
                 <Button
@@ -128,7 +130,7 @@ function ArtPieceDetail({
             </p>
           </div>
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer className={`my-modal ${theme === 'dark' ? 'dark' : 'light'}`}>
           <Button
             variant="secondary"
             onClick={handleClose}
@@ -153,6 +155,7 @@ function ArtPieceDetail({
         </Modal.Footer>
       </Modal>
     </div>
+    </ThemeContext.Provider>
   );
 }
 

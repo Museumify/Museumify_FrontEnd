@@ -1,19 +1,19 @@
 
 .about-us-container.dark {
-  background-color: #141105; /* Example dark background color */
-  color: white;  /* Example text color for dark mode */
+  background-color: #141105; 
+  color: white; 
 } 
 .about-us-container.light{
-  background-color: #f5efdb; /* Example dark background color */
-  color: #141105;  /* Example text color for dark mode */
+  background-color: #f5efdb; 
+  color: #141105; 
 }  
  .developer-card.dark {
-  background-color: #222; /* Example dark background color */
-  color: white;  /* Example text color for dark mode */
+  background-color: #222; 
+  color: white;  
 } 
 .developer-card.light{
-  background-color:  #FFECAF; /* Example dark background color */
-  color: #141105;  /* Example text color for dark mode */
+  background-color:  #FFECAF; 
+  color: #141105;  
 }  
 
 .about-us-container {

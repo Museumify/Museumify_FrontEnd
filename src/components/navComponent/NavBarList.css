@@ -36,15 +36,18 @@
   margin-bottom: 15px;
 }
 
-.dropdown-item:hover{
-  background-color: red
+.dropdown-menu {
+  background-color: #f5efdb !important;
+  }
+.dropdown-item{color:black !important}  
+
+.dropdown-item:hover {
+  background: #fcecb7!important;
+}
+.dropdown-item:last-child:hover{
+  color: red !important;
 }
 
-.dropdown-item:last-child:hover {
-  color:red; 
-  border-bottom: none; 
-  
-}
 
 
 

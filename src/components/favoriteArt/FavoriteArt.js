@@ -102,7 +102,7 @@ function FavoriteArt() {
               }}
           >
             
-            <Card.Img src={`${art.image}`} alt={"Logo"}
+            <Card.Img src={`${art.image}`} alt={"Your Art Picture"}
              style={{ width:'300px' ,height :"300px" }}/>
                
              
@@ -146,7 +146,7 @@ function FavoriteArt() {
       ) : (
         <div>No Favorite Art Pieces Were Added</div>
       )}
-      <NewCardForm handleClose={handleClose} handleShow={handleShow} show={show} />
+      <NewCardForm handleClose={handleClose} handleShow={handleShow} show={show} handleFavArt={handleFavArt} />
     </div>
   </div>
   );

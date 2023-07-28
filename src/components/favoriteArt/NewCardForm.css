@@ -1,3 +1,21 @@
+.FormContainer.dark {
+  background-color: #141105; 
+  color: white;  
+} 
+.FormContainer.light{
+  background-color: #f5efdb; 
+  color: #141105;  
+}  
+
+.FormFields.dark {
+  background-color: #adadad; 
+  color: white;
+  
+} 
+.FormFields.light{
+  background-color:  white; 
+  color: #141105;  
+}  
 
 .FormContainer {
     padding: 20px;
@@ -15,22 +33,24 @@
   }
   
   .FormContainer .form-control {
-    border: none; /* Remove the border */
+    border: none; 
     border-radius: 5px;
     padding: 8px;
-    box-shadow: 0 0 0 1px #ced4da; /* Add a box-shadow to create a visual separation */
+    box-shadow: 0 0 0 1px #ced4da; 
   }
   
   .FormContainer .form-control:focus {
     outline: none;
-    box-shadow: 0 0 0 2px #007bff; /* Change the box-shadow color on focus */
+    box-shadow: 0 0 0 2px #007bff;
   }
   
   .FormContainer .input-group-text {
     font-size: 16px;
     font-weight: bold;
     background-color: #f5efdb;
+    border-style:none;
   }
+  
   
   .FormContainer .modal-footer {
     border-top: none;
