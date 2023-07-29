@@ -15,7 +15,7 @@ function FavoriteArt() {
   const { user, isAuthenticated } = useAuth0();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme} = useContext(ThemeContext);
 
   async function handleFavArt() {
     const url = `${process.env.REACT_APP_SERVER_URL}/allArts`;

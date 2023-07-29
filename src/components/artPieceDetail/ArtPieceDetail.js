@@ -4,7 +4,6 @@ import { Button, Form } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import { useRef, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import FavoriteArt from "../favoriteArt/FavoriteArt";
 import { ThemeContext } from '../../App';
 
 

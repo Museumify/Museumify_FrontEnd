@@ -15,7 +15,7 @@ function NewCardForm({ handleShow, handleClose, show,handleFavArt }) {
   const descriptionRef = useRef();
   const placeRef = useRef();
   const commentRef = useRef();
-  const [cards, setCards] = useState([]);
+  const [setCards] = useState([]);
   
 
   function handleSubmit(e) {

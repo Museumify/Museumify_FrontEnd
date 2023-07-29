@@ -15,16 +15,16 @@ const Footer = () => {
           </span>
         </div>
         <div style={{ color: "white", fontSize: "14px" }}>
-          <a href="" className="me-2 text-reset">
+          <a href="www.facebook.com" className="me-2 text-reset">
             <i className="fab fa-facebook-f"></i>
           </a>
-          <a href="" className="me-2 text-reset">
+          <a href="www.twitter.com" className="me-2 text-reset">
             <i className="fab fa-twitter"></i>
           </a>
-          <a href="" className="me-2 text-reset">
+          <a href="www.instgram.com" className="me-2 text-reset">
             <i className="fab fa-instagram"></i>
           </a>
-          <a href="" className="me-2 text-reset">
+          <a href="www.linkedin.com" className="me-2 text-reset">
             <i className="fab fa-linkedin"></i>
           </a>
           <a href="https://github.com/Museumify" className="me-2 text-reset">

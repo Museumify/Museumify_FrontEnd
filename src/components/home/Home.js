@@ -3,8 +3,6 @@ import './Home.css';
 import { useState, useEffect } from 'react';
 import ArtPiecesList from '../artPiecesList/ArtPiecesList';
 import Slider from './Slider';
-import { SearchBar } from '../SearchBar/SearchBar';
-
 
 function Home({ searchUrl }) {
   const [data, setData] = useState([]);
@@ -18,7 +16,7 @@ function Home({ searchUrl }) {
       const arts = await response.json();
       responseData = arts;
     } else {
-      searchUrl = searchUrl;
+      // searchUrl = searchUrl;
       const response = await fetch(`${searchUrl}`);
       const arts = await response.json();
       responseData = arts;
