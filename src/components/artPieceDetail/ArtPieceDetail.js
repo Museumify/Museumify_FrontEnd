@@ -29,6 +29,7 @@ function ArtPieceDetail({
     const newArt = { ...DetailData, userComment };
     setComment(userComment);
     commentHandler(newArt, newArt.id);
+    alert("Your comment will be added once you add this art piece to favorite")
   }
 
   async function handleAddFav(e) {
