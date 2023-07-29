@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { Toggle } from '../SearchBar/Toggle';
 import Home from '../home/Home';
 import './SearchBar.css';
+import { ThemeContext } from '../../App';
 
 export const SearchBar = () => {
   const [input, setInput] = useState('');
@@ -39,8 +40,9 @@ export const SearchBar = () => {
     setInput(value);
     fetchData(value);
   };
-
+  const { theme } = useContext(ThemeContext);
   return (
+    <ThemeContext.Provider value={{ theme }}>
     <div>
       <div className="search-bar-container">
         <div className="toggle-container">
@@ -56,10 +58,12 @@ export const SearchBar = () => {
             }
             value={input}
             onChange={(e) => handleChange(e.target.value)}
+            className={`search-input ${theme === 'dark' ? 'dark' : 'light'}`}
           />
         </div>
       </div>
       <Home searchUrl={searchUrl} />
     </div>
+    </ThemeContext.Provider>
   );
 };

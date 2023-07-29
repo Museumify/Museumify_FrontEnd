@@ -50,3 +50,7 @@ input::placeholder {
   color: #dc3545;
   margin-right: 10px;
 }
+
+.search-input.light{color: black;}
+
+.search-input.dark{color: white;}

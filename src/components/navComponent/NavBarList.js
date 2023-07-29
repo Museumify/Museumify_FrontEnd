@@ -108,17 +108,12 @@ function NavBarList() {
                           )}
                         </div>
                       </Dropdown.Toggle>
-
-                      <Dropdown.Menu style={{ left: -160 }}>
+                    <Dropdown.Menu className="custom-dropdown-menu" style={{ left: -130 }}>
                         <Dropdown.Item>{user?.name}</Dropdown.Item>
                         <Dropdown.Item as={Link} to="/user-profile">
                           Your Profile
                         </Dropdown.Item>
-                        <Dropdown.Divider
-                          style={{ borderColor: "lightgray" }}
-                        />
-                        <Dropdown.Item></Dropdown.Item>
-                        <Dropdown.Item>
+                        <Dropdown.Item as="button" className="logout-item">
                           <LogoutButton />
                         </Dropdown.Item>
                       </Dropdown.Menu>
@@ -148,6 +143,19 @@ function NavBarList() {
 
 export default NavBarList;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import React, { useState } from "react";
 // import "./NavBarList.css";
 // import { ThemeContext } from "../../App";
@@ -172,44 +180,50 @@ export default NavBarList;
 //   return (
 //     <ThemeContext.Consumer>
 //       {({ theme, toggleTheme }) => (
-//         <div style={{ paddingBottom: "10px" }}>
+//         <div style={{ paddingBottom: "20px" }}>
 //           <Navbar
 //             data-bs-theme="dark"
 //             expand="md"
+//             bg={theme === "dark" ? "dark" : "light"}
 //             style={{
 //               backgroundImage: `url(${image})`,
+//               height: "80px", // Adjust the height as desired
 //             }}
 //           >
 //             <Container>
-//               <Navbar.Brand href="/" style={{ fontFamily: "Megrim", fontSize: "30px" }}>
-//                 <img src="/logo.png" alt="Logo" style={{ width: "50px", height: "50px" }} />
-//                 <b style={{ marginLeft: "10px" }}>Museumify</b>
-//               </Navbar.Brand>
+//               <Link to="/" style={{ textDecoration: "none" }}>
+//                 <Navbar.Brand
+//                   style={{
+//                     fontFamily: "Megrim",
+//                     fontSize: "40px",
+//                   }}
+//                 >
+//                   <b>Museumify</b>
+//                 </Navbar.Brand>
+//               </Link>
+
 //               <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
 //               <Navbar.Collapse id="basic-navbar-nav">
-//                 <Nav className="me-auto">
+//                 <Nav className="me-auto mx-auto"> {/* Added 'mx-auto' class to center the child elements */}
 //                   {isAuthenticated && (
-//                     <Nav.Link
-//                       href="/favorite"
-//                       style={{ fontFamily: "DaiBannaSIL", fontSize: "16px" }}
-//                     >
+//                     <Nav.Link href="/favorite" style={{ fontFamily: "DaiBannaSIL", color: "white", fontSize: "24px", textAlign: "center" }}>
 //                       Favorite Art
 //                     </Nav.Link>
 //                   )}
-//                   <Nav.Link
-//                     href="/aboutus"
-//                     style={{ fontFamily: "DaiBannaSIL", fontSize: "16px" }}
-//                   >
+//                   <Nav.Link href="/aboutus" style={{ fontFamily: "DaiBannaSIL", color: "white", fontSize: "24px", marginLeft: "35px", textAlign: "center" }}>
 //                     About Us
 //                   </Nav.Link>
 //                 </Nav>
-//                 <div className="d-flex align-items-center">
-//                   <div className="switch me-3">
+
+//                 <div className="d-flex align-items-center justify-content-between">
+//                   <div className="switch me-3" style={{ marginTop: "12px" }}>
+//                     {/* Added marginTop to adjust the position */}
 //                     <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
 //                     {theme === "dark" ? (
-//                       <i className="fas fa-moon" style={{ color: "#f5efdb", marginLeft: "5px" }}></i>
+//                       <i className="fas fa-moon" style={{ color: "#f5efdb", marginLeft: "5px", fontSize: "24px" }}></i>
 //                     ) : (
-//                       <i className="fas fa-sun" style={{ color: "#f5efdb", marginLeft: "5px" }}></i>
+//                       <i className="fas fa-sun" style={{ color: "#f5efdb", marginLeft: "5px", fontSize: "24px" }}></i>
 //                     )}
 //                   </div>
 //                   <div className="user-info">
@@ -220,20 +234,41 @@ export default NavBarList;
 //                           id="user-dropdown-toggle"
 //                           onClick={handleMenuToggle}
 //                         >
-//                           <div className="user-picture-container" style={{ marginTop: "10px" }}>
+//                           <div className="user-picture-container" style={{ marginTop: "12px" }}>
 //                             {user?.picture && (
 //                               <img
 //                                 src={user.picture}
 //                                 alt={user.name}
 //                                 className="navbar-user-image"
-//                                 style={{ width: "30px", height: "30px", borderRadius: "50%" }}
+//                                 style={{ width: "48px", height: "48px", borderRadius: "50%" }}
 //                               />
 //                             )}
 //                           </div>
 //                         </Dropdown.Toggle>
-//                         <Dropdown.Menu style={{ left: -120 }}>
-//                           <Dropdown.Item>{user?.name}</Dropdown.Item>
-//                           <Dropdown.Item as={Link} to="/user-profile">
+//                         <Dropdown.Menu
+//                           style={{
+//                             right: 0,
+//                             left: "auto",
+//                             backgroundColor: theme === "dark" ? "#343a40" : "#f8f9fa",
+//                             padding: "8px", // Adjust the padding as needed
+//                           }}
+//                         >
+//                           <Dropdown.Item
+//                             style={{
+//                               color: theme === "dark" ? "#f5efdb" : "#141105",
+//                               fontSize: "18px", // Adjust the font size as needed
+//                             }}
+//                           >
+//                             {user?.name}
+//                           </Dropdown.Item>
+//                           <Dropdown.Item
+//                             as={Link}
+//                             to="/user-profile"
+//                             style={{
+//                               color: theme === "dark" ? "#f5efdb" : "#141105",
+//                               fontSize: "18px", // Adjust the font size as needed
+//                             }}
+//                           >
 //                             Your Profile
 //                           </Dropdown.Item>
 //                           <Dropdown.Divider style={{ borderColor: "lightgray" }} />
@@ -248,10 +283,10 @@ export default NavBarList;
 //                         className="login-button"
 //                         onClick={loginWithRedirect}
 //                         style={{
-//                           borderRadius: "8px",
+//                           borderRadius: "10px",
 //                           marginLeft: "5px",
 //                           fontFamily: "DaiBannaSIL",
-//                           fontSize: "16px",
+//                           fontSize: "18px", // Adjust the font size as needed
 //                         }}
 //                       >
 //                         Log in
@@ -269,5 +304,6 @@ export default NavBarList;
 // }
 
 // export default NavBarList;
+
 
 
