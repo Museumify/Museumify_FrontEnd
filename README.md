@@ -1,71 +1,98 @@
-# Getting Started with Create React App
+# Museumify Website - User Power and Authentication Guide
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+Museumify is an online platform dedicated to showcasing historic art pieces from various cultures and countries. This README.md file provides detailed information about the user power available to both non-logged-in users and logged-in users. Additionally, it explains the authentication process and user powers implemented using Auth0 for secure access to private user pages.
 
-In the project directory, you can run:
+## User Power
 
-### `npm start`
+### Non-Logged-In Users
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Non-logged-in users have limited access to Museumify's features. They can utilize the following main components:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **Home Page**
+   - The home page features a search box allowing users to filter art pieces by the artist's name or the culture/country of the artwork.
+   - A slider displays a selection of artwork, providing users with an overview of the main goal of the website: to showcase historic art pieces and create a positive first impression.
+   - Art pieces are presented as interactive clickable cards that reveal more of the image when hovered over.
+   - Clicking on an art piece reveals more details, including the image, title, artist, place, and description.
 
-### `npm test`
+   **Note**: Non-logged-in users are unable to comment or add art pieces to their favorite page.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **About Us Page**
+   - The About Us page offers general information about Museumify, including details about the development team, their bios, email addresses, and GitHub profiles.
 
-### `npm run build`
+3. **Dark Mode Feature**
+   - A dark mode button allows users to switch the website's appearance to a dark color scheme.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Logged-In Users
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Once users log in, they gain access to additional features and functionalities:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **Add Pictures to Favorites**
+   - Logged-in users can add any picture from the art gallery or museum to their favorites list for easy access.
 
-### `npm run eject`
+2. **Add Comments**
+   - Users have the option to leave comments on any picture from the art gallery, enabling interaction and sharing of thoughts.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. **View Favorite Pictures**
+   - A "Favorites" option in the navigation bar provides logged-in users quick access to their list of favorite pictures.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. **Add Pictures to Art Gallery**
+   - Logged-in users can contribute to the art gallery by adding new pictures along with relevant information.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5. **Drop-down Menu for Logged-In Users**
+   - The drop-down menu contains essential actions and settings related to the user's account.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Authentication Setup
 
-## Learn More
+Museumify implements authentication using Auth0 to secure user access to private pages. The following steps explain the authentication setup:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Visit the Auth0 website (https://auth0.com/) and create a new application of type "react."
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Install the required library using the following import statement:
+   ```javascript
+   import { useAuth0 } from "@auth0/auth0-react";
+   ```
 
-### Code Splitting
+3. Link the project with the Auth0 application using the provided domain, clientId, and redirect_uri.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Authentication Components
 
-### Analyzing the Bundle Size
+Museumify utilizes the following components to handle the authentication process:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. **Login**
+   - This component allows users to sign in using their credentials or through third-party providers like Google or GitHub.
 
-### Making a Progressive Web App
+2. **Logout**
+   - The logout component enables users to sign out from the application securely.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+3. **Profile**
+   - The profile component displays relevant user information on the screen, making it easily accessible.
 
-### Advanced Configuration
+## Private User Pages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Museumify implements private user pages to enhance the security and privacy of user data. The steps below outline the implementation process:
 
-### Deployment
+1. **Creating the "userid" Column in the Database**
+   - A new column named "userid" is added to the database to serve as a unique identifier for each user on the website.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+2. **Implementing the Authentication Function**
+   - An authentication function is implemented to verify the user's identity before granting access to private profile pages.
 
-### `npm run build` fails to minify
+3. **Fetching User Data**
+   - Upon successful authentication, the user's data is fetched through the profile page, and a unique identifier ("sub") is used to associate each user with their private pages.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# Museumify_FrontEnd
+4. **Storing User Data**
+   - A secure storage mechanism is implemented to store user data, enabling users to add information and artifacts to their private pages.
+
+5. **Filtering and Storing Data in the Database**
+   - Data provided by users is carefully filtered before storage in the database to maintain data integrity and ensure a user-friendly system.
+
+6. **Logout**
+   - A "Logout" button is provided to allow users to sign out from the application.
+
+**Please note**: The aforementioned options are exclusively available to logged-in users.
+
+---
+
+Thank you for using Museumify! We hope you enjoy exploring the fascinating world of historic art pieces from different cultures and countries. If you encounter any issues or have any suggestions, please feel free to contact our team at https://github.com/Museumify Happy browsing! 

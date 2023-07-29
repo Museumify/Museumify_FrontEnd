@@ -1,88 +1,51 @@
-// import React from 'react';
-// import { useAuth0 } from '@auth0/auth0-react';
-// import { Modal, Button } from 'react-bootstrap';
-// import "./Profile.css"
+import { React, useContext } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+import { Container, Card } from "react-bootstrap";
+import { FaEnvelope, FaUserAlt } from "react-icons/fa";
+import "./Profile.css";
+import { ThemeContext } from "../../App";
 
-// const ProfileModal = ({ showModal, handleToggleModal }) => {
-//   const { user, isAuthenticated } = useAuth0();
-
-//   return (
-//     <Modal show={showModal} onHide={handleToggleModal} className="profile-modal">
-//       <Modal.Header closeButton>
-//         <Modal.Title>User Profile</Modal.Title>
-//       </Modal.Header>
-//       <Modal.Body>
-//         {isAuthenticated && (
-//         <>
-//           <article className='column'>
-//           <div className="profile-image-container">
-//             {user?.picture && <img src={user.picture} alt={user?.name} className="profile-image"/>}
-//           </div>
-//             <h2 className="profile-name">{user?.name}</h2>
-//             <p className="profile-email">Email: {user?.email || 'N/A'}</p>
-//             <p className="profile-nickname">Nickname: {user?.nickname || 'N/A'}</p>
-//           </article>
-//         </>
-//         )}
-//       </Modal.Body>
-//       <Modal.Footer>
-//         <Button variant="secondary" onClick={handleToggleModal}>
-//           Close
-//         </Button>
-//       </Modal.Footer>
-//     </Modal>
-//   );
-// };
-
-// export default ProfileModal;
-import React from 'react';
-import { useAuth0 } from '@auth0/auth0-react';
-import { Modal, Button } from 'react-bootstrap';
-import "./Profile.css"
-
-const ProfileModal = ({ showModal, handleToggleModal }) => {
-  const { user, isAuthenticated } = useAuth0();
+const ProfilePage = () => {
+  const { user } = useAuth0();
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <Modal show={showModal} onHide={handleToggleModal} className="profile-modal">
-      <Modal.Header closeButton>
-        <Modal.Title>User Profile</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        {isAuthenticated && (
-        <>
-          <article className='column'>
+    <>
+      <Container className="profile-container">
+        <h1
+          className={`profile-title ${theme === "dark" ? "dark" : "light"}`}
+          style={{ fontFamily: "DaiBannaSIL" }}
+        >
+          Your Profile
+        </h1>
+        <Card
+          className={`profile-card ${theme === "dark" ? "dark" : "light"}`}
+          style={{ maxWidth: "400px", height: "100%" }}
+        >
           <div className="profile-image-container">
-            {user?.picture && <img src={user.picture} alt={user?.name} className="profile-image"/>}
+            {user?.picture && (
+              <img
+                src={user.picture}
+                alt={user.name}
+                className="profile-image"
+              />
+            )}
           </div>
-            <h2 className="profile-name">{user?.name}</h2>
-            <p className="profile-email">Email: {user?.email || 'N/A'}</p>
-            <p className="profile-nickname">Nickname: {user?.nickname || 'N/A'}</p>
-          </article>
-        </>
-        )}
-      </Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={handleToggleModal}>
-          Close
-        </Button>
-      </Modal.Footer>
-    </Modal>
+          <Card.Body className="profile-card-body">
+            <Card.Title className="profile-name">{user?.name}</Card.Title>
+            <div className="profile-details">
+              <p>
+                <FaEnvelope className="profile-icon" /> {user?.email || "N/A"}
+              </p>
+              <p>
+                <FaUserAlt className="profile-icon" /> {user?.nickname || "N/A"}
+              </p>
+            </div>
+          </Card.Body>
+        </Card>
+      </Container>
+    </>
   );
 };
 
-export default ProfileModal;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default ProfilePage;

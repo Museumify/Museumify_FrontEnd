@@ -1,0 +1,20 @@
+.my-modal .modal-content {
+    background-color: #FFECAF;
+  }
+  .my-modal.dark {
+    background-color: #141105; 
+    color: white; 
+  } 
+  .my-modal.light{
+    background-color: #f5efdb; 
+    color: #141105; 
+  }  
+
+  .CardField.dark {
+    background-color: #adadad; 
+    color: white;  
+  } 
+  .CardField.light{
+    background-color:  white; 
+    color: #141105;  
+  }   
