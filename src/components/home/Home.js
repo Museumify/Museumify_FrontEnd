@@ -1,5 +1,4 @@
 import React from 'react';
-import './Home.css';
 import { useState, useEffect } from 'react';
 import ArtPiecesList from '../artPiecesList/ArtPiecesList';
 import Slider from './Slider';

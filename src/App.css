@@ -10,8 +10,14 @@
 
 /*======================================*/
 #light{background-color:#f5efdb;}
-/* #dark{background-color: #282c34;} */
 #dark{background-color: #141105;} 
+
+
+.switch{
+  display:flex;
+  align-items: center;
+  }
+
 
 .switch{
   display:flex;
