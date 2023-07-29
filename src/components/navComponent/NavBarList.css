@@ -1,12 +1,85 @@
-
 .navbar-user-image {
-  width: 30px; 
-  height: 30px; 
-  border-radius: 50%; 
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.navbar-image {
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .user-info .dropdown {
   position: relative;
   top: 2px;
 }
+.login-button {
+  color: white; 
+  border: none; 
+  padding: 10px 20px; 
+  border-radius: 5px; 
+  font-size: 18px; 
+  cursor: pointer; 
+  transition: color 0.3s ease; 
+  background: transparent; 
+  outline: none; 
+  font-family: "DaiBannaSIL"
+}
+.login-button:hover {
+  color: #a1a1a1; 
+}
+
+.logo-image {
+  width: 60px; 
+  height: 60px; 
+  margin-right:10px; 
+  margin-bottom: 15px;
+}
+
+/* .dropdown-menu {
+  background-color: #f5efdb !important;
+  }
+.dropdown-item{color:black !important}  
+
+.dropdown-item:hover {
+  background: #fcecb7!important;
+}
+.dropdown-item:last-child:hover{
+  color: red !important;
+} */
+
+.dropdown-menu {
+  background-color: #fcecb7  !important; 
+}
+
+.dropdown-item {
+  color: black !important;
+  margin: 0; 
+  padding: 0.5rem 1rem; 
+}
+
+.dropdown-item:hover {
+  background: #f5efdb !important;
+}
+
+.custom-dropdown-menu > * {
+  background-color: #fcecb7 !important;
+}
+
+
+.custom-dropdown-menu .logout-item button:active,
+.custom-dropdown-menu .logout-item :last-child:focus {
+  color: red !important;
+}
+
+
+.dropdown-menu .dropdown-item:active,
+.dropdown-menu .dropdown-item:focus {
+  background-color: transparent !important;
+}
+
+
+
+
+
 
