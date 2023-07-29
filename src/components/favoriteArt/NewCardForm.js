@@ -15,7 +15,7 @@ function NewCardForm({ handleShow, handleClose, show,handleFavArt }) {
   const descriptionRef = useRef();
   const placeRef = useRef();
   const commentRef = useRef();
-  const [setCards] = useState([]);
+  const [Cards,setCards] = useState([]);
   
 
   function handleSubmit(e) {
@@ -68,9 +68,9 @@ function NewCardForm({ handleShow, handleClose, show,handleFavArt }) {
    {
     setCards((prevCards) => [...prevCards, data]);
     // alert("Your art piece was added successfully in favorite page")
-    handleClose()
-    handleFavArt()
    }
+   handleClose()
+   handleFavArt()
   }
 
   return (
